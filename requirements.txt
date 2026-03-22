@@ -1,1 +1,12 @@
 cloudscraper
+streamlit
+streamlit-autorefresh
+plotly
+pandas
+numpy
+matplotlib
+pymongo
+requests
+openpyxl
+tzdata
+curl_cffi
