@@ -1,0 +1,62 @@
+============================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Ticker: AAPL
+Analysis Date (ET): 2026-02-09
+Window (ET): 2026-02-09T00:00:00-05:00 -> 2026-02-10T00:00:00-05:00
+Window (UTC): 2026-02-09T05:00:00Z -> 2026-02-10T05:00:00Z
+============================================================================
+
+=== SUMMARY ===
+- Total posts: 38
+- Bullish: 16 | Bearish: 5 | Unlabeled: 17
+- Net sentiment: 0.289474
+
+=== HOURLY NET SENTIMENT (ET) ===
+- hour=15 bull=5 bear=3 unl=2 total=10 net=0.200000 Δ=
+- hour=16 bull=5 bear=1 unl=8 total=14 net=0.285714 Δ=0.085714
+- hour=17 bull=1 bear=0 unl=1 total=2 net=0.500000 Δ=0.214286
+- hour=18 bull=3 bear=0 unl=1 total=4 net=0.750000 Δ=0.250000
+- hour=19 bull=1 bear=1 unl=1 total=3 net=0.000000 Δ=-0.750000
+- hour=20 bull=1 bear=0 unl=4 total=5 net=0.200000 Δ=0.200000
+
+=== SENTIMENT VOLATILITY (STD of hourly net sentiment) ===
+- volatility_std: 0.264437
+
+=== TOP KEYWORDS ===
+ALL(4), SHORT(3), NOW(3), BULLISH(3), WHAT(3), MARKET(3), POLESTAR(3), BUY(2), STOCKS(2), SHARES(2), APPLE(2), WHEN(2)
+
+=== TOP TICKER MENTIONS (from $TICKER mentions) ===
+- AAPL: 38
+- TSLA: 6
+- NVDA: 3
+- PSNY: 3
+- RACE: 3
+- MSFT: 2
+- AMZN: 2
+- BLK: 2
+- FDX: 1
+- RJET: 1
+- UPS: 1
+- META: 1
+- NFLX: 1
+- GOOG: 1
+- QQQ: 1
+- SPY: 1
+- RIVN: 1
+
+=== NOTES / THEME FLAGS ===
+has_link(4), mentions_options(2), mentions_chart(1), mentions_earnings(1)
+
+=== NOTABLE POSTS (flagged) ===
+- has_link | https://stocktwits.com/UgoGreg/message/644508159 | $AAPL https://youtu.be/cgvlT3yhYTQ
+- has_link,mentions_options | https://stocktwits.com/TalkMarkets/message/644512284 | #Apple&#39;s FCF Margins Surge And Its Target Value Rises - What&#39;s The Best AAPL Stock Play? $AAPL https://talkmarkets.com/content/options/apples-fcf-margins-surge-and-its-target-value-rises-whats-the-best-aapl-stock-play?post=556155
+- has_link | https://stocktwits.com/maikl_211/message/644516381 | $PSNY   Polestar&#39;s mocking advert shows how the market shift is leaving Tesla behind  $AAPL $TSLA $RACE   $BLK     https://www.youtube.com/watch?v=Oj-0kHqtguo
+- mentions_chart | https://stocktwits.com/theoptionsplug/message/644517448 | Bold take here but I think $AAPL will pullback to our diagonal trendline (looks like that could bring it to around $256).  - Looks &quot;head-and-shoulders-esque&quot; on the daily chart here...
+- has_link | https://stocktwits.com/maikl_211/message/644518953 | $PSNY   Why I Ditched My Tesla for a Polestar 4 (and No, I’m Not Crazy)  Tesla BlackBerry  Polestar Apple    $AAPL $TSLA $RACE $BLK     https://www.youtube.com/watch?v=9nSIDrg2_wM
+- mentions_earnings | https://stocktwits.com/Powertrader22/message/644522248 | $AAPL ok un regulated hedge fund  Blow out earnings, 🐂ish
+- mentions_options | https://stocktwits.com/QuantInsider/message/644522488 | $AAPL slipped about 1% today  What&#39;s up with the heavy call action  Over $55M of today&#39;s options premium went into ask-side sweeps and blocks for May 285C and June 310C  Looks like the big players are setting up for some medium-term...
+
+=== YOUR NOTES (fill in) ===
+- Major narrative drivers today:
+- Any unusual spikes / anomalies:
+- What to watch next session:

@@ -1,0 +1,56 @@
+============================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Ticker: AMD
+Analysis Date (ET): 2026-02-09
+Window (ET): 2026-02-09T00:00:00-05:00 -> 2026-02-10T00:00:00-05:00
+Window (UTC): 2026-02-09T05:00:00Z -> 2026-02-10T05:00:00Z
+============================================================================
+
+=== SUMMARY ===
+- Total posts: 41
+- Bullish: 14 | Bearish: 3 | Unlabeled: 24
+- Net sentiment: 0.268293
+
+=== HOURLY NET SENTIMENT (ET) ===
+- hour=15 bull=4 bear=1 unl=7 total=12 net=0.250000 Δ=
+- hour=16 bull=2 bear=2 unl=3 total=7 net=0.000000 Δ=-0.250000
+- hour=17 bull=0 bear=0 unl=4 total=4 net=0.000000 Δ=0.000000
+- hour=18 bull=2 bear=0 unl=2 total=4 net=0.500000 Δ=0.500000
+- hour=19 bull=3 bear=0 unl=3 total=6 net=0.500000 Δ=0.000000
+- hour=20 bull=3 bear=0 unl=5 total=8 net=0.375000 Δ=-0.125000
+
+=== SENTIMENT VOLATILITY (STD of hourly net sentiment) ===
+- volatility_std: 0.229356
+
+=== TOP KEYWORDS ===
+AMD(6), BEARISH(3), ALL(2), SOON(2), MARKET(2), MOVE(2), HOW(2), ANOTHER(2), SECOND(2), HALF(2), HTTPS(2), BUY(2)
+
+=== TOP TICKER MENTIONS (from $TICKER mentions) ===
+- AMD: 41
+- NVDA: 6
+- SPY: 4
+- QQQ: 3
+- AMZN: 1
+- EOSE: 1
+- MSTR: 1
+- QBTS: 1
+- QUBT: 1
+- SOXL: 1
+- META: 1
+- CRM: 1
+
+=== NOTES / THEME FLAGS ===
+has_link(3), mentions_earnings(2), mentions_options(1)
+
+=== NOTABLE POSTS (flagged) ===
+- mentions_options | https://stocktwits.com/Reaperm3/message/644497027 | $AMD I just wanted to apologize to all the bulls because as soon as I bought 50 212.50 calls for 11.20 each....the price just kept steady dropping.....like my account balance currently.
+- has_link | https://stocktwits.com/investingvalue/message/644502976 | $AMD $NVDA $SPY $QQQ $AMZN   Soon, AMD and Amazon deal will be announced according to the news.  https://ir.amd.com/news-events/press-releases/detail/1277/amd-hires-ariel-kelman-as-chief-marketing-officer
+- has_link | https://stocktwits.com/UgoGreg/message/644508423 | $AMD https://youtu.be/cgvlT3yhYTQ
+- has_link | https://stocktwits.com/Mandy007/message/644510621 | $AMD The facts discussed here and much other information on http://Zacks.com might help determine whether or not it&#39;s worthwhile paying attention to the market buzz about Advanced Micro. However, its Zacks Rank #3 does suggest that it m...
+- mentions_earnings | https://stocktwits.com/Fundamentals101/message/644521702 | $NVDA $AMD @dbatech99 The lousy results from AMD were predictable. They are too far behind. Check out the Analyst predictions from Goldman Sachs. NVDA wins!!     Goldman Sachs revenue/earnings targets through 2028:    2026: Revenue $215.1 b...
+- mentions_earnings | https://stocktwits.com/dbatech99/message/644522386 | $NVDA $AMD  what kind of IDIOT thinks AMD&#39;s record ER was bad. Oh I get it, morons that like to overstate and under deliver that&#39;s why their ER was a dumpster fire. This is also why AMD has doubled invidious investment performance o...
+
+=== YOUR NOTES (fill in) ===
+- Major narrative drivers today:
+- Any unusual spikes / anomalies:
+- What to watch next session:

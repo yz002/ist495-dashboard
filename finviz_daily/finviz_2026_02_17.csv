@@ -1,0 +1,97 @@
+No.,Ticker,Company,Market Cap,Average Volume,Relative Volume,Volume,Price,Change
+1,OLB,OLB Group Inc,19.89,216.6,2182.24,472681950,1.48,256.54%
+2,SGN,Signing Day Sports Inc,5.75,26950.7,8.16,219796730,0.42,67.69%
+3,PLYX,Polaryx Therapeutics Inc,187.47,169.68,321.69,54584955,3.96,64.32%
+4,BDMD,Baird Medical Investment Holdings Limited,46.28,129.95,398.13,51736555,1.26,63.64%
+5,ATOM,Atomera Inc,181.53,957.19,36.46,34899838,5.73,46.17%
+6,ETRL,GraniteShares 2x Long ETOR Daily ETF,,5.05,8.49,42919,10.17,42.25%
+7,CBUS,Cibus Inc,220.43,266.93,8.66,2312921,3.26,41.74%
+8,GVH,Globavend Holdings Ltd,2.75,415.04,167.33,69449243,1.3,41.26%
+9,VHUB,Venhub Global Inc,249.42,1755.73,5.18,9098409,3.33,36.48%
+10,LFS,Leifras Co Ltd ADR,86.33,938.91,23.55,22112519,3.3,36.36%
+11,GXAI,Gaxos.AI Inc,12.27,5415.69,17.39,94190658,1.42,35.24%
+12,GMM,Global Mofy AI Ltd,73.86,26.86,112.44,3020416,1.49,34.23%
+13,MASI,Masimo Corp,9383.29,749.6,19.76,14811578,174.69,34.22%
+14,IBG,Innovation Beverage Group Ltd,3.71,77.19,9.63,743589,5.34,32.84%
+15,CMPS,Compass Pathways Plc ADR,732.48,1378.14,25.38,34970451,7.63,31.33%
+16,PHOE,Phoenix Asia Holdings Ltd,295.27,70,7.28,509758,13.67,28.48%
+17,ZIM,Zim Integrated Shipping Services Ltd,3354.75,4314.66,9.17,39577182,27.85,25.45%
+18,AUUD,Auddia Inc,2.59,220.83,12.34,2725182,0.83,24.12%
+19,EEIQ,EpicQuest Education Group International Limited,5.27,9.98,26.11,260665,3.57,23.85%
+20,SAGT,Sagtec Global Ltd,27.11,52.12,8.03,418717,2.16,21.35%
+21,CHOW,ChowChow Cloud International Holdings Ltd,25.9,8315.04,6.25,51951967,0.74,18.62%
+22,SIF,SIFCO Industries Inc,80.18,33.49,13.25,443928,12.9,17.27%
+23,IRON,Disc Medicine Inc,2475.28,648.54,5.53,3583596,65.57,17.19%
+24,NESR,National Energy Services Reunited Corp,2435.8,1085.31,6.03,6541400,24.17,16.03%
+25,VVPR,VivoPower International PLC,40.97,637.72,6.2,3956702,2.44,15.64%
+26,EYPT,EyePoint Inc,1234.36,1120.66,7.78,8720496,14.91,15.22%
+27,KW,Kennedy-Wilson Holdings Inc,1497.64,843.4,8.2,6912117,10.86,9.81%
+28,BTBD,BT Brands Inc,7.84,31.57,9.64,304329,1.32,9.09%
+29,TWAV,TaoWeave Inc,2.47,57.43,5.47,314291,0.77,8.76%
+30,WAY,Waystar Holding Corp,4650.9,2200.41,5.66,12464358,24.31,8.48%
+31,CNVS,Cineverse Corp,53.03,188.2,8.72,1641818,2.71,8.40%
+32,OBAI,Our Bond Inc,34.85,164.55,201.48,33153569,3.39,8.31%
+33,OFAL,OFA Group,,127.85,16.39,2094937,0.54,8.25%
+34,ATCH,AtlasClear Holdings Inc,36.14,5119.94,5.71,29235741,0.25,3.56%
+35,EDF,Virtus Stone Harbor Emerging Markets Income Fund,167.83,148.66,6.55,974417,5.24,2.75%
+36,PBEU,Portfolio Building Block European Banks Index ETF,,43.56,203.51,8864818,29.91,2.60%
+37,ERNA,Ernexa Therapeutics Inc,8.86,493.3,60.85,30015193,0.33,2.20%
+38,EUFN,iShares MSCI Europe Financials ETF,,1240.79,10.74,13331069,37.33,1.97%
+39,COIA,ProShares Ultra COIN,,43.5,7.43,323386,5.47,1.86%
+40,CONX,Direxion Daily COIN Bull 2X ETF,,16.75,9.26,155172,8.44,1.83%
+41,RWR,State Street SPDR Dow Jones REIT ETF,,313.05,6.25,1956791,108.01,1.17%
+42,GLIN,VanEck India Growth Leaders ETF,,41.55,5.28,219209,46.85,0.90%
+43,BPAY,iShares FinTech Active ETF,,3.31,5.13,16957,23.73,0.86%
+44,GF,New Germany Fund Inc,194,13.33,9.3,123904,11.99,0.84%
+45,FRDU,Direxion Daily F Bull 2X ETF,,1.58,16.21,25566,37.83,0.80%
+46,GDOC,Goldman Sachs Future Health Care Equity ETF,,1.59,35.82,57013,34.61,0.71%
+47,ETEC,iShares Breakthrough Environmental Solutions ETF,,0.91,5.27,4816,28.5,0.68%
+48,TGRW,T. Rowe Price Growth Stock ETF,,25.76,11.14,286965,42.89,0.64%
+49,RNTY,YieldMax Target 12 Real Estate Option Income ETF,,1.25,6.14,7664,51.8,0.60%
+50,PSCF,Invesco S&P SmallCap Financials ETF,,3.94,10.92,42968,60.88,0.59%
+51,PBPH,Portfolio Building Block World Pharma and Biotech Index ETF,,48.66,342.99,16690006,27.33,0.59%
+52,MADE,iShares U.S. Manufacturing ETF,,16.03,10.03,160731,36.43,0.55%
+53,GOLS,Gabelli Opportunities in Live and Sports ETF,,5.35,39.72,212620,25.05,0.53%
+54,EDSA,Edesa Biotech Inc,8.54,62.43,9.35,583624,1.02,0.49%
+55,ALF,Centurion Acquisition Corp,386,41.45,18.1,750295,10.74,0.47%
+56,IYJ,iShares U.S. Industrials ETF,,89.89,6.66,598594,160.23,0.43%
+57,HEMI,Hartford Equity Premium Income ETF,,7.53,66.46,500452,40.11,0.36%
+58,ACSG,American Century Small Cap Growth Insights ETF,,1.03,7.96,8236,42.28,0.35%
+59,PCY,Invesco Emerging Markets Sovereign Debt ETF,,393.42,7.11,2798765,22.06,0.32%
+60,DALI,First Trust Dorsey Wright DALI Equity ETF,,4.5,5.65,25443,29.75,0.31%
+61,INTJ,Intelligent Group Ltd,10.3,5.69,7.43,42327,6.7,0.30%
+62,BPH,BP p.l.c. ADRhedged,,0.54,28.05,15163,57.66,0.28%
+63,VSLU,Applied Finance Valuation Large Cap ETF,,49.92,5.86,292636,43.78,0.26%
+64,RSPN,Invesco S&P 500 Equal Weight Industrials ETF,,196.37,6.31,1238731,63,0.25%
+65,IXJ,iShares Global Healthcare ETF,,282.34,14.72,4155617,101.18,0.23%
+66,EIRL,iShares MSCI Ireland ETF,,6.93,7.89,54684,72.75,0.20%
+67,BGDV,Bahl & Gaynor Dividend ETF,,11.65,8.5,98976,29.17,0.20%
+68,VGLT,Vanguard Long-Term Treasury ETF,,2385.65,6.7,15989109,57.29,0.19%
+69,MUNB,Northern Trust 2035 Tax-Exempt Distributing Ladder ETF,,1.5,7.93,11896,102.44,0.19%
+70,JHCB,John Hancock Corporate Bond ETF,,32.12,6.74,216668,21.76,0.18%
+71,PCS,PGIM Corporate Bond 0-5 Year ETF,,30.66,48.93,1500000,50.56,0.16%
+72,PEPS,Parametric Equity Plus ETF,,0.5,5.32,2652,29.36,0.14%
+73,PBMR,PGIM S&P 500 Buffer 20 ETF - March,,1.66,10.57,17589,30.77,0.14%
+74,GXLC,Global X U.S. 500 ETF,,0.08,5.23,431,81.82,0.13%
+75,STXM,Strive Mid-Cap ETF,,3.01,12.34,37152,30.87,0.13%
+76,GOVI,Invesco Equal Weight 0-30 Year Treasury ETF,,287.68,31.88,9169975,28.07,0.12%
+77,EMOP,AB Emerging Markets Opportunities ETF,,13.3,5.7,75737,46.56,0.12%
+78,SIXS,ETC 6 Meridian Small Cap Equity ETF,,4.8,5.64,27106,54.72,0.12%
+79,FTXH,First Trust Nasdaq Pharmaceuticals ETF,,6.27,8.64,54238,35.22,0.11%
+80,DAAQ,Digital Asset Acquisition Corp,235.29,137.09,6.77,927843,10.23,0.10%
+81,DMAA,Drugs Made In America Acquisition Corp,350.26,26.89,7.44,200028,10.45,0.10%
+82,LEGT,Legato Merger Corp III,237.01,29.67,10.5,311707,10.93,0.09%
+83,PBJN,PGIM S&P 500 Buffer 20 ETF - June,,2.19,5.19,11381,30.06,0.08%
+84,LSVD,LSV Disciplined Value ETF,,1,22.63,22721,30.39,0.08%
+85,JPEF,JPMorgan Equity Focus ETF,,92.99,22.23,2067524,75.02,0.07%
+86,ITDJ,iShares LifePath Target Date 2070 ETF,,4.12,6.96,28655,30.4,0.07%
+87,GMUN,Goldman Sachs Access Municipal Bond ETF,,1.23,56.29,69130,51.38,0.07%
+88,APOC,Innovator Equity Defined Protection ETF - 6mo Apr/Oct,,22.25,71.94,1600585,26.31,0.06%
+89,ACLO,TCW AAA CLO ETF,,21.53,16.12,347079,50.47,0.06%
+90,WTMY,WisdomTree High Income Laddered Municipal Fund,,0.62,6.42,3986,25.81,0.06%
+91,KJUN,Innovator U.S. Small Cap Power Buffer ETF - June,,2.49,8.38,20838,28.44,0.05%
+92,FLTW,Franklin FTSE Taiwan ETF,,207.35,7.14,1480581,70.55,0.04%
+93,MYCK,State Street My2031 Corporate Bond ETF,,3.73,63.27,235928,25.29,0.04%
+94,DYNB,Hartford Dynamic Bond ETF,,2.1,12.86,26989,40.11,0.04%
+95,TBX,ProShares Short 7-10 Year Treasury -1x Shares,,5.93,6.05,35852,27.61,0.02%
+96,OPER,ClearShares Ultra-Short Maturity ETF,,9.23,5.28,48751,100.21,0.00%

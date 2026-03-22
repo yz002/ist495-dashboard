@@ -1,0 +1,70 @@
+============================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Ticker: SMX
+Analysis Date (ET): 2026-02-06
+Window (ET): 2026-02-06T00:00:00-05:00 -> 2026-02-07T00:00:00-05:00
+Window (UTC): 2026-02-06T05:00:00Z -> 2026-02-07T05:00:00Z
+============================================================================
+
+=== SUMMARY ===
+- Total posts: 624
+- Bullish: 315 | Bearish: 30 | Unlabeled: 279
+- Net sentiment: 0.456731
+
+=== HOURLY NET SENTIMENT (ET) ===
+- hour=06 bull=1 bear=0 unl=1 total=2 net=0.500000 Δ=
+- hour=07 bull=2 bear=0 unl=2 total=4 net=0.500000 Δ=0.000000
+- hour=08 bull=0 bear=0 unl=1 total=1 net=0.000000 Δ=-0.500000
+- hour=09 bull=25 bear=1 unl=16 total=42 net=0.571429 Δ=0.571429
+- hour=10 bull=143 bear=4 unl=119 total=266 net=0.522556 Δ=-0.048872
+- hour=11 bull=144 bear=25 unl=140 total=309 net=0.385113 Δ=-0.137443
+
+=== SENTIMENT VOLATILITY (STD of hourly net sentiment) ===
+- volatility_std: 0.211465
+
+=== TOP KEYWORDS ===
+NOW(30), LET(30), NEXT(28), AGAIN(23), HERE(23), HALT(22), BACK(22), ALL(22), DON(19), OUT(19), SEE(19), STOCK(18)
+
+=== TOP TICKER MENTIONS (from $TICKER mentions) ===
+- SMX: 624
+- BNAI: 15
+- BOXL: 13
+- CCHH: 12
+- CETX: 8
+- TIRX: 6
+- WHLR: 6
+- ELPW: 5
+- LBTYB: 5
+- OCG: 5
+- IBG: 4
+- BATL: 4
+- YYAI: 3
+- SPRC: 3
+- SPY: 3
+- PHOE: 3
+- FLYE: 3
+- LIMN: 3
+- RDIB: 3
+- JLHL: 3
+
+=== NOTES / THEME FLAGS ===
+has_link(7), mentions_options(6), mentions_chart(5), mentions_earnings(3)
+
+=== NOTABLE POSTS (flagged) ===
+- mentions_options | https://stocktwits.com/QuantumTechnology/message/644253375 | Called you $DRCT for over 260% profits.    Now I am calling you $IBG next. IBG has a very similar setup. 580k float, 620k shares oustanding.    IBG could run +200% if volume enters or the company gives us news.    Reminds me of the early be...
+- mentions_options | https://stocktwits.com/QuantumTechnology/message/644270441 | Called you DRCT for 260%+ now I am calling you $IBG next.    IBG could pull a similar move. 580k float, 0 short shares.    IBG could be the next $SMX $BNAI type of ticker.
+- mentions_options | https://stocktwits.com/KingBrutus/message/644287900 | $SMX anyone in options?
+- has_link | https://stocktwits.com/SQUEEZEALERT/message/644288005 | $SMX BOOM BABY!!👀🚀  https://www.facebook.com/groups/414156736062986/?ref=share
+- has_link | https://stocktwits.com/SQUEEZEALERT/message/644288405 | $SMX NEXT STOP $20👀🚀  https://www.facebook.com/groups/414156736062986/?ref=share
+- has_link,mentions_chart | https://stocktwits.com/Stock_Catcher/message/644289166 | $SMX showed key level on screen $11 ran $16.73 , $CCHH said was top play in premarket ,made smooth gains up , $NAMM team traded, $BNAI as well (multi name) , $FLYE was picked early when it wasn&#39;t spiking.  If you want to see what stocks...
+- mentions_options | https://stocktwits.com/QuantumTechnology/message/644290238 | Called you DRCT for 260% now I am calling $IBG next!    IBG has a similar setup and would not surprise me if we see it running 100-200% within a few days.    IBG has only 580k shares float, which is less than $SMX and $BNAI have.    $WHLR h...
+- mentions_chart | https://stocktwits.com/Elcochaosos/message/644292255 | $SMX $SMX BULLS checkout $BULLFROG AI HLDGS INC primed and ready for a reversal oversold daily weekly chart sitting at 27 RSI, dropped 8 consecutive days, all it needs is volume AI is the future.
+
+=== DAILY_METRICS.CSV ROW (if available) ===
+      date window_start_et  window_end_et ticker  total_posts  bullish  bearish  unlabeled  bullish_pct  bearish_pct  net_sentiment  sentiment_volatility  max_hourly_sentiment  min_hourly_sentiment  sentiment_range  largest_hourly_change  spillover_mentions_total spillover_top_target  spillover_top_target_pct  mentions_earnings_count  mentions_options_count  has_link_count  mentions_chart_count                                          top_keywords_12
+2026-02-06  2/6/2026 12:00 2/6/2026 17:00    SMX          735      409       41        285     0.556463     0.055782        0.50068              0.044419              0.559783               0.43617         0.123612                0.06833                         5                 NVDA                       0.8                        4                      10              10                     8 NEXT|HERE|RUN|SMX|SHORTS|NOW|BIG|LET|TIME|IBG|GOING|LAST
+
+=== YOUR NOTES (fill in) ===
+- Major narrative drivers today:
+- Any unusual spikes / anomalies:
+- What to watch next session:

@@ -1,0 +1,157 @@
+======================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Analysis Date (ET): 2026-02-04
+Window (ET): 2026-02-04T00:00:00-05:00 -> 2026-02-05T00:00:00-05:00
+Window (UTC): 2026-02-04T05:00:00Z -> 2026-02-05T05:00:00Z
+======================================================================
+
+Total rows (selected streams, all-day ET): 982
+
+=== ATTENTION / VOLUME ===
+- AMD: 351 posts (35.7%)
+- NVDA: 273 posts (27.8%)
+- TSLA: 208 posts (21.2%)
+- AAPL: 150 posts (15.3%)
+
+=== SENTIMENT SUMMARY ===
+- AAPL: bullish=35, bearish=18, unlabeled=97, total=150, net=0.113333
+- AMD: bullish=118, bearish=53, unlabeled=180, total=351, net=0.185185
+- NVDA: bullish=123, bearish=13, unlabeled=137, total=273, net=0.402930
+- TSLA: bullish=41, bearish=52, unlabeled=115, total=208, net=-0.052885
+
+=== HOURLY NET SENTIMENT (ET) ===
+[AAPL]
+  hour=14 bull=13 bear=4 unl=27 total=44 net=0.204545 Δ=
+  hour=15 bull=17 bear=7 unl=33 total=57 net=0.175439 Δ=-0.029107
+  hour=16 bull=5 bear=7 unl=32 total=44 net=-0.045455 Δ=-0.220893
+  hour=17 bull=0 bear=0 unl=5 total=5 net=0.000000 Δ=0.045455
+
+[AMD]
+  hour=14 bull=26 bear=10 unl=32 total=68 net=0.235294 Δ=
+  hour=15 bull=46 bear=32 unl=90 total=168 net=0.083333 Δ=-0.151961
+  hour=16 bull=40 bear=8 unl=52 total=100 net=0.320000 Δ=0.236667
+  hour=17 bull=6 bear=3 unl=6 total=15 net=0.200000 Δ=-0.120000
+
+[NVDA]
+  hour=14 bull=27 bear=5 unl=26 total=58 net=0.379310 Δ=
+  hour=15 bull=36 bear=4 unl=41 total=81 net=0.395062 Δ=0.015751
+  hour=16 bull=56 bear=4 unl=66 total=126 net=0.412698 Δ=0.017637
+  hour=17 bull=4 bear=0 unl=4 total=8 net=0.500000 Δ=0.087302
+
+[TSLA]
+  hour=14 bull=12 bear=11 unl=28 total=51 net=0.019608 Δ=
+  hour=15 bull=16 bear=22 unl=42 total=80 net=-0.075000 Δ=-0.094608
+  hour=16 bull=13 bear=17 unl=43 total=73 net=-0.054795 Δ=0.020205
+  hour=17 bull=0 bear=2 unl=2 total=4 net=-0.500000 Δ=-0.445205
+
+=== SENTIMENT VOLATILITY (STD of hourly net sentiment) ===
+- TSLA: 0.235181
+- AAPL: 0.124775
+- AMD: 0.098122
+- NVDA: 0.053909
+
+=== TOP KEYWORDS (per ticker) ===
+- AAPL: HTTPS(14), YOUTU(14), APPLE(11), HAVE(9), BACK(8), GET(8), BUY(7), ADD(7), WATCHLIST(7), HERE(7), MARKET(6), LIKE(6)
+- AMD: AMD(19), EARNINGS(17), NOW(16), ALL(15), WHAT(14), CLOSE(13), PUTS(13), BUY(13), GOOD(13), BACK(13), MARKET(12), SEE(11)
+- NVDA: CAPEX(18), NOW(16), MARKET(15), NVIDIA(15), GOOGLE(15), NVDA(14), LIKE(13), BACK(10), HAS(10), ALL(9), HOW(9), BIG(9)
+- TSLA: GOOGLE(13), ELON(12), WHAT(11), PEDO(11), ALL(10), HAVE(10), NOW(9), OUT(9), STOCK(8), TESLA(8), LIKE(7), MARKET(7)
+
+=== NOTES / THEME FLAGS (per ticker) ===
+- AAPL: has_link(18), mentions_options(13), mentions_earnings(4), mentions_chart(1)
+- AMD: mentions_options(30), mentions_earnings(30), has_link(12), mentions_chart(5)
+- NVDA: mentions_earnings(15), mentions_options(11), has_link(6), mentions_chart(1)
+- TSLA: mentions_options(15), mentions_earnings(11), has_link(7)
+
+=== TOP MENTIONED TICKERS (overall, from $TICKER mentions) ===
+- AMD: 354
+- NVDA: 294
+- TSLA: 222
+- AAPL: 153
+- SPY: 65
+- PLTR: 54
+- GOOGL: 54
+- QQQ: 52
+- GHOST: 30
+- MU: 26
+- GOOG: 26
+- MSFT: 18
+- AMZN: 17
+- BTC: 14
+- SMCI: 9
+- META: 8
+- ONDS: 8
+- GME: 8
+- AVGO: 8
+- ARM: 7
+
+=== TOP MENTIONED TICKERS (per stream) ===
+- AAPL: AAPL(150), GHOST(26), PLTR(18), QQQ(14), SPY(12), AMZN(11), GOOGL(9), MSFT(8), TSLA(6), BTC(4), META(4), SOL(2)
+- AMD: AMD(351), PLTR(25), NVDA(21), MU(20), SPY(20), GOOGL(15), GOOG(12), QQQ(11), ONDS(7), SMCI(6), INTC(5), SNDK(5)
+- NVDA: NVDA(273), GOOGL(26), QQQ(26), SPY(25), GOOG(9), PLTR(6), TSLA(5), NBIS(5), MSFT(5), AVGO(5), BTC(4), MU(4)
+- TSLA: TSLA(208), SPY(8), PLTR(5), GOOGL(4), META(3), BTC(3), DJT(3), GHOST(3), GOOG(3), GME(2), MSFT(2), ONDS(1)
+
+=== CROSS-TICKER SPILLOVER MATRIX (count of posts in stream mentioning target) ===
+      AMD  NVDA  AAPL  TSLA
+AMD     0    21     0     3
+NVDA    3     0     3     5
+AAPL    0     0     0     6
+TSLA    0     0     0     0
+
+=== NORMALIZED SPILLOVER (row-normalized %) ===
+       AMD  NVDA  AAPL   TSLA
+AMD    0.0  87.5   0.0   12.5
+NVDA  27.3   0.0  27.3   45.5
+AAPL   0.0   0.0   0.0  100.0
+TSLA   0.0   0.0   0.0    0.0
+
+=== NOTABLE POSTS (sample, per ticker) ===
+[AAPL]
+  - has_link | https://stocktwits.com/davidmoadel/message/644012793 | Warren Buffett-Style Stocks for a Golden Retirement -- article I wrote for @247WallSt https://247wallst.com/investing/2026/02/04/3-warren-buffett-style-stocks-for-a-golden-retirement/ $AAPL $ALLY $DVA
+  - mentions_options | https://stocktwits.com/Sliver/message/644015866 | $AAPL   The gift that keeps on giving!  Call mania!    $$$$$$$$$$$$$$$$$$$$$$$
+  - mentions_chart | https://stocktwits.com/Wallstreet_Criminals/message/644016655 | $QQQ Corruption on full display today. Just look at $AAPL chart today. 6 weeks worth of losses gone in less than 7 sessions.
+  - mentions_options | https://stocktwits.com/somek/message/644017173 | $AAPL overnight puts here lotto..cheap
+  - mentions_earnings | https://stocktwits.com/SniperPro/message/644017634 | $LLY my lilly shares are beyond green, I wish $LXRX  could follow next, $ENPH  38% up after awesome earnings... $MGM finally moving to greener grounds, good job all...  $AAPL is the only one not leaving me behind... LFG
+  - has_link,mentions_options | https://stocktwits.com/Gianluca_Trader/message/644017980 | closed the long call on $AAPL already. I expected a quick move but I was not sure it was going to happen that soon. I&#39;ll move the money on another position, this was a good trade https://optionsamurai.com/blog/trade-...
+
+[AMD]
+  - mentions_options | https://stocktwits.com/Nobletune/message/644008238 | $AMD swing puts wake up to 180
+  - mentions_options | https://stocktwits.com/BankingOptions/message/644010428 | $AMD $PLTR another bounce to get cheap PUTS again for tomorrow . $SPY
+  - mentions_chart | https://stocktwits.com/wader2k/message/644010587 | $AMD 204.19 would give a bullish engulfing on the 2hr chart....but i wouldn&#39;t get excited yet. Want to see over that Yellow line...
+  - mentions_options | https://stocktwits.com/maxomighty83/message/644010777 | $AMD i wouldnt buy any puts ur fun
+  - mentions_options | https://stocktwits.com/Kingmecc/message/644011003 | $AMD don’t be an idiot still holding puts.. enjoy ur profits
+  - has_link,mentions_chart | https://stocktwits.com/moneybags77/message/644011048 | $DJT $BTC.X $COIN $MU $AMD It&#39;s not a true statement. It should be 100% for the intake, either through Consumption or through Federal taxes.  That said, the American taxpayer benefit far outpaces the cost. All other ...
+
+[NVDA]
+  - mentions_chart | https://stocktwits.com/cubie/message/644006071 | $NVDA @JoeeD   Oh bulls praying $GOOGL chart level holds😅,  they saved it once an hr and half ago. 😅
+  - has_link | https://stocktwits.com/notreload_ai/message/644006515 | Positron, a chip startup, raised $230M and hit a $1B value. It plans to roll out fast, low-power chips for running AI apps. Backed by big investors and Qatar’s wealth fund, it aims to challenge $NVDA and ship new chips b...
+  - mentions_options | https://stocktwits.com/BEGUIN/message/644006729 | $NVDA Actually the successifs of Antropic Cowork juts illustrates the power of AI vs traditional softwares (ie NOT relying on AI), related to légal, marketing,...   It precisely illustrates the credibility of AI across s...
+  - mentions_options,mentions_earnings | https://stocktwits.com/LionsFan777/message/644006942 | $NVDA Time to start an April 170 call position and add to it before earnings.
+  - mentions_options | https://stocktwits.com/MdcRaven13/message/644007108 | $NVDA took my little call win. Don’t trust shit
+  - has_link | https://stocktwits.com/McNallieMoney/message/644007663 | $NVDA here we go!  https://youtu.be/N-FjGA0G7Jo
+
+[TSLA]
+  - mentions_options | https://stocktwits.com/Brainsbutnodiscipline/message/644007156 | $TSLA everyone crying for it to be red or happy for it to be red xD - but did you all took a good look at option chain? looks like it will end above 420 by end of the week.
+  - mentions_options | https://stocktwits.com/shaman919/message/644008425 | $TSLA if I buy back my puts this will run to 450 lol
+  - mentions_options | https://stocktwits.com/Boardroommaster/message/644008736 | $TSLA sold my 10 legs of  420 puts  for 500 profit early this Am thinking I did the right thing 🤦‍♂️ who would have know I could have bought a small car had I held till noon.
+  - mentions_options | https://stocktwits.com/dark_gamma/message/644010947 | $TSLA OPTIONS LEVELS  :-)    February 4, 2026    Critical Levels to Watch:    Call Wall: $410.00 - A critical resistance level    Put Wall: $400.00 - A key support level    Gamma Flip: $412.50 - A turning point for volat...
+  - mentions_options | https://stocktwits.com/Bag_Pang/message/644011478 | $ARM anybody else shorting this with OTM puts in the $80’s for fun??🐻⬇️  Bears what are we thinking!  $MSTR  $TSLA  $META  $SPY
+  - mentions_options | https://stocktwits.com/shaman919/message/644012193 | $TSLA  $410 calls were a no brainer 2 hours a
+
+
+=== DAILY_METRICS.CSV SNAPSHOT (if available) ===
+      date window_start_et  window_end_et ticker  total_posts  bullish  bearish  unlabeled  bullish_pct  bearish_pct  net_sentiment  sentiment_volatility  max_hourly_sentiment  min_hourly_sentiment  sentiment_range  largest_hourly_change  spillover_mentions_total spillover_top_target  spillover_top_target_pct  mentions_earnings_count  mentions_options_count  has_link_count  mentions_chart_count                                                    top_keywords_12
+2026-02-04  2/4/2026 12:00 2/4/2026 17:00    AMD          336      112       50        174     0.333333     0.148810       0.184524              0.119915              0.320000              0.083333         0.236667               0.236667                        22                 NVDA                  0.863636                       28                      30              11                     5       AMD|EARNINGS|ALL|NOW|WHAT|CLOSE|PUTS|BUY|GOOD|MARKET|SEE|GET
+2026-02-04  2/4/2026 12:00 2/4/2026 17:00   NVDA          265      119       13        133     0.449057     0.049057       0.400000              0.016703              0.412698              0.379310         0.033388               0.017637                        11                 TSLA                  0.454545                       15                       9               6                     1      CAPEX|NOW|NVIDIA|NVDA|GOOGLE|MARKET|LIKE|BACK|ALL|HAS|HOW|BIG
+2026-02-04  2/4/2026 12:00 2/4/2026 17:00   AAPL          145       35       18         92     0.241379     0.124138       0.117241              0.136712              0.204545             -0.045455         0.250000               0.220893                         5                 TSLA                  1.000000                        4                      12              18                     1 HTTPS|YOUTU|APPLE|HAVE|GET|BUY|ADD|WATCHLIST|BACK|HERE|MARKET|LIKE
+2026-02-04  2/4/2026 12:00 2/4/2026 17:00   TSLA          204       41       50        113     0.200980     0.245098      -0.044118              0.049824              0.019608             -0.075000         0.094608               0.094608                         0                  NaN                  0.000000                       11                      15               6                     0           GOOGLE|WHAT|ELON|ALL|PEDO|HAVE|NOW|OUT|LIKE|GOT|BUY|GOOD
+
+=== INTERPRETATION (auto) ===
+- Most bullish stream (net): NVDA (net=0.403, n=273)
+- Least bullish stream (net): TSLA (net=-0.053, n=208)
+- Attention concentration: top stream AMD captured 351/982 (35.7%) of posts.
+- BTC appeared in mentions: 14 times (indicator of crypto spillover into equity streams).
+
+=== YOUR NOTES (fill in) ===
+- Major narrative drivers today:
+- Any unusual spikes / anomalies:
+- What to watch next session:

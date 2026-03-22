@@ -1,0 +1,88 @@
+No.,Ticker,Company,Market Cap,Average Volume,Relative Volume,Volume,Price,Change
+1,RXT,Rackspace Technology Inc,333.74,1604.51,325.05,521547807,1.37,226.97%
+2,SNSE,Sensei Biotherapeutics Inc,33.12,86.46,143.21,12382943,26.25,187.51%
+3,CDIO,Cardio Diagnostics Holdings Inc,3.88,425.01,119.54,50806880,2.13,78.99%
+4,MLEC,Moolec Science SA,10.43,1168.37,6.13,7156978,14.36,49.90%
+5,RENX,RenX Enterprises Corp,1.77,23583.03,11.4,268820592,0.2,44.88%
+6,AUUD,Auddia Inc,3.54,399.97,259.74,103886447,1.14,36.56%
+7,SABR,Sabre Corp,462.02,6579.7,5.1,33571087,1.17,24.68%
+8,VGAS,Verde Clean Fuels Inc,59.25,15.22,37.7,573884,1.33,24.30%
+9,JFB,JFB Construction Holdings,127.81,82.63,11.78,973586,20.9,22.94%
+10,TCMD,Tactile Systems Technology Inc,738.19,345.89,5.27,1824153,33.05,17.83%
+11,GLBE,Global E Online Ltd,5898.04,1518.27,5.54,8417845,34.81,17.21%
+12,LBTYA,Liberty Global Ltd,4402.51,2293.09,5.04,11548722,13.03,16.76%
+13,MSGS,Madison Square Garden Sports Corp,8233.56,193.49,5.39,1042827,342.07,16.44%
+14,MCW,Mister Car Wash Inc,2286.43,1156.51,35.16,40660156,6.98,16.14%
+15,VVPR,VivoPower International PLC,47.52,694.56,5.61,3894125,2.83,15.98%
+16,EDRY,EuroDry Ltd,46.36,3.6,6.09,21913,16.4,15.60%
+17,LBTYK,Liberty Global Ltd,4323.49,871.75,5.5,4790726,12.67,14.66%
+18,DASX,Tradr 2X Long DASH Daily ETF,,10.25,5.05,51814,10.35,14.44%
+19,GDC,GD Culture Group Limited,203.48,47.73,7.33,349905,3.55,13.42%
+20,CNVS,Cineverse Corp,58.12,206,9.02,1858749,2.97,9.59%
+21,BENF,Beneficient,58.66,236.34,78.67,18592255,4.15,8.64%
+22,WBUY,Webuy Global Ltd,2.99,1075.28,6.81,7325398,1.23,6.96%
+23,ZNB,Zeta Network Group,33.41,1547.04,15.64,24191838,0.23,6.33%
+24,BKNU,T-REX 2X Long BKNG Daily Target ETF,,3.8,12.46,47326,13.41,5.92%
+25,SHAZ,SharonAI Holdings Inc,0.17,0.04,13654.79,500170,31.7,5.67%
+26,IGE,iShares North American Natural Resources ETF,,176.83,10.27,1815735,60.43,1.91%
+27,NORW,Global X MSCI Norway ETF,,12.59,8.76,110272,35.1,1.82%
+28,NANR,State Street SPDR S&P North American Natural Resources ETF,,36.5,29.4,1073118,81.85,1.60%
+29,CSNR,Cohen & Steers Natural Resources Active ETF,,12.32,21.02,259026,36.5,1.42%
+30,MOOD,Relative Sentiment Tactical Allocation ETF,,16.78,20.26,339909,42.04,1.31%
+31,KEAT,Keating Active ETF,,3.03,10.55,31966,34.25,1.24%
+32,FDND,FT Vest Dow Jones Internet & Target Income ETF,,2.46,6.5,16005,19.92,1.23%
+33,BNGE,First Trust S-Network Streaming and Gaming ETF,,2.15,15.87,34146,32.09,1.22%
+34,PCLN,Pictet Cleaner Planet ETF,,0.07,21.8,1529,27.87,1.20%
+35,QOWZ,Invesco Nasdaq Free Cash Flow Achievers ETF,,1.36,7.34,9957,33.64,1.17%
+36,BRTX,BioRestorative Therapies Inc,2.45,1202.31,5.01,6022550,0.27,1.12%
+37,TTEQ,T. Rowe Price Technology ETF,,45.52,11.26,512731,32.1,1.09%
+38,VMAX,Hartford US Value ETF,,0.14,26.69,3776,57.66,0.92%
+39,AKAF,The Frontier Economic Fund,,0.09,13,1224,32.48,0.92%
+40,DINT,Davis Select International ETF,,15.84,18.67,295695,29,0.88%
+41,TFNS,T. Rowe Price Financials ETF,,0.86,5.62,4839,26.82,0.87%
+42,EATZ,AdvisorShares Restaurant ETF,,3.1,5.2,16123,27.6,0.86%
+43,CGV,Conductor Global Equity Value ETF,,14.2,5.34,75877,16.52,0.79%
+44,OPTZ,Optimize Strategy Index ETF,,8.23,6.09,50152,38.56,0.71%
+45,GEME,Pacific North of South EM Equity Active ETF,,36.84,8.21,302490,37.59,0.67%
+46,ANEW,ProShares MSCI Transformational Changes ETF,,0.23,5.54,1287,49.12,0.66%
+47,CFA,VictoryShares US 500 Volatility Wtd ETF,,7.33,5.33,39058,96.09,0.65%
+48,IQSU,NYLI Candriam U.S. Large Cap Equity ETF,,16.23,57.76,937670,54.32,0.64%
+49,TILT,FlexShares Morningstar US Market Factors Tilt Index Fund,,5.73,21.99,125997,255.54,0.63%
+50,LRND,NYLI U.S. Large Cap R&D Leaders ETF,,68.21,19.82,1351733,39.5,0.61%
+51,GVLE,Goldman Sachs Value Opportunities ETF,,3.16,6.5,20539,41.89,0.61%
+52,IQSM,NYLI Candriam U.S. Mid Cap Equity ETF,,11.19,109.26,1222855,36.83,0.60%
+53,PJFM,PGIM Jennison Focused Mid-Cap ETF,,0.03,6.8,179,66.46,0.58%
+54,HAKY,Amplify HACK Cybersecurity Covered Call ETF,,3.34,12.77,42673,24.48,0.57%
+55,UCAR,U Power Ltd,7.82,20.19,5.16,104282,1.41,0.57%
+56,LVDS,JPMorgan Fundamental Data Science Large Value ETF,,6.01,6.16,37065,53,0.56%
+57,TFPN,Blueprint Chesapeake Multi-Asset Trend ETF,,7.08,18.41,130337,28.65,0.55%
+58,IFLO,VictoryShares International Free Cash Flow ETF,,5.05,13.79,69683,31,0.55%
+59,MRSK,Toews Agility Shares Managed Risk ETF,,39.25,8.83,346420,37.06,0.55%
+60,MASI,Masimo Corp,9432.71,982.02,5.18,5088955,175.61,0.53%
+61,WCME,First Trust WCM Developing World Equity ETF,,11.73,5.91,69274,18.64,0.51%
+62,BOBP,CORE16 Best of Breed Premier Index ETF,,1.21,16.16,19481,27.57,0.50%
+63,IDVY,First Trust International Rising Dividend Achievers ETF,,0.18,15.67,2821,25.18,0.49%
+64,DVND,Touchstone Dividend Select ETF,,0.39,6.92,2707,37.61,0.46%
+65,BSEP,Innovator U.S. Equity Buffer ETF - September,,8.55,10.87,92927,49.61,0.45%
+66,EEMX,State Street SPDR MSCI Emerging Markets Fossil Fuel Reserves Free ETF,,9.68,6.35,61445,47.63,0.41%
+67,FOXY,Simplify Currency Strategy ETF,,33.13,8.22,272198,29.62,0.36%
+68,SXQG,ETC 6 Meridian Quality Growth ETF,,3.27,5.71,18684,31.45,0.35%
+69,BTR,Beacon Tactical Risk ETF,,0.68,7.61,5175,26.79,0.35%
+70,FELV,Fidelity Enhanced Large Cap Value ETF,,151.72,13.42,2036402,36.58,0.33%
+71,TSI,TCW Strategic Income Fund Inc,224.35,127.15,8.69,1104992,4.7,0.32%
+72,UJB,ProShares Ultra High Yield 2x Shares,,10.85,6.16,66837,79.95,0.32%
+73,WGRX,Wellgistics Health Inc,23.18,539.72,25.7,13871530,0.26,0.31%
+74,FMAR,FT Vest U.S. Equity Buffer ETF - March,,17.77,11.41,202806,47.93,0.25%
+75,RSPN,Invesco S&P 500 Equal Weight Industrials ETF,,216.25,5.35,1157767,63.15,0.23%
+76,PMAU,PGIM S&P 500 Max Buffer ETF - August,,0.21,7.22,1502,25.91,0.21%
+77,RSBT,Return Stacked Bonds & Managed Futures ETF,,42.19,5.77,243519,19.23,0.21%
+78,EVI,EVI Industries Inc,262.01,16.61,9.36,155433,20.37,0.20%
+79,WSGE,Warren Street Global Equity ETF,,3.92,43.17,169107,25.96,0.18%
+80,KSPY,KraneShares Hedgeye Hedged Equity Index ETF,,62.31,6.31,393380,27.92,0.18%
+81,PJUN,Innovator U.S. Equity Power Buffer ETF - June,,27.51,35.2,968326,42.18,0.17%
+82,GFEB,FT Vest U.S. Equity Moderate Buffer ETF - February,,15.64,5.78,90325,42.17,0.11%
+83,OTGA,OTG Acquisition Corp I,296.73,46.46,6.75,313421,10.05,0.10%
+84,KOYN,CSLM Digital Asset Acquisition Corp III Ltd,317.16,100.25,5.32,533415,10.05,0.10%
+85,LLDR,Global X Long-Term Treasury Ladder ETF,,0.87,5.11,4438,46.71,0.08%
+86,ABLG,Abacus FCF International Leaders ETF,,4.83,23.72,114610,32.54,0.05%
+87,CMBO,Wayfinder Dynamic U.S. Interest Rate ETF,,0.49,11.01,5364,101.16,0.03%

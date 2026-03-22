@@ -1,0 +1,64 @@
+============================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Ticker: NVDA
+Analysis Date (ET): 2026-02-09
+Window (ET): 2026-02-09T00:00:00-05:00 -> 2026-02-10T00:00:00-05:00
+Window (UTC): 2026-02-09T05:00:00Z -> 2026-02-10T05:00:00Z
+============================================================================
+
+=== SUMMARY ===
+- Total posts: 56
+- Bullish: 21 | Bearish: 7 | Unlabeled: 28
+- Net sentiment: 0.250000
+
+=== HOURLY NET SENTIMENT (ET) ===
+- hour=17 bull=5 bear=0 unl=8 total=13 net=0.384615 Δ=
+- hour=18 bull=7 bear=2 unl=8 total=17 net=0.294118 Δ=-0.090498
+- hour=19 bull=4 bear=4 unl=6 total=14 net=0.000000 Δ=-0.294118
+- hour=20 bull=5 bear=1 unl=6 total=12 net=0.333333 Δ=0.333333
+
+=== SENTIMENT VOLATILITY (STD of hourly net sentiment) ===
+- volatility_std: 0.172700
+
+=== TOP KEYWORDS ===
+GOING(5), HTTPS(4), COM(4), HOW(4), CALLS(3), OUT(3), SEE(3), WHO(3), BOUGHT(3), GOOD(3), NVIDIA(3), HAVE(3)
+
+=== TOP TICKER MENTIONS (from $TICKER mentions) ===
+- NVDA: 56
+- SPY: 14
+- QQQ: 13
+- AVGO: 5
+- AMZN: 4
+- GOOGL: 3
+- MSFT: 3
+- AMD: 3
+- GOOG: 3
+- TSM: 3
+- BTC: 3
+- COIN: 3
+- META: 2
+- MU: 2
+- RRX: 2
+- SMCI: 2
+- SNPS: 2
+- SLV: 2
+- APLD: 1
+- CRWV: 1
+
+=== NOTES / THEME FLAGS ===
+has_link(6), mentions_options(5), mentions_earnings(2)
+
+=== NOTABLE POSTS (flagged) ===
+- has_link | https://stocktwits.com/TalkMarkets/message/644512549 | Up 955%, Is Applied Digital Just Hitting Its Stride? $APLD Also $NVDA $CRWV https://talkmarkets.com/content/stocks--equities/up-955-is-applied-digital-just-hitting-its-stride?post=556156
+- has_link | https://stocktwits.com/TalkMarkets/message/644512912 | #Tech Tantrums $AMZN $MSFT $NVDA $META $GOOGL https://talkmarkets.com/content/us-markets/tech-tantrums?post=556157
+- has_link | https://stocktwits.com/OfficialStocktwitsUser/message/644513316 | $NVDA RSI: 60.76, MACD: -0.5124 Vol: 5.41, MA20: 184.93, MA50: 183.81  🟢 BUY - Uptrend + healthy RSI  👉 https://quantumstockalerts.com  Disclaimer: I am not a financial advisor. This post reflects personal analysis and opinions only. Please...
+- mentions_options | https://stocktwits.com/AZZ_MAN/message/644513376 | $NVDA I picked up some 1/15/2027  $420 calls cheap today. Going for more tomorrow
+- has_link | https://stocktwits.com/itsallaboutheoptions/message/644514042 | $NVDA $SPY due to popular demand will be doing a live presentation this week on how Delta trades work and how to spot them and how to monetize them -  Get in now for SMS alerts, market data, and full chat access before the next delta trade ...
+- mentions_options | https://stocktwits.com/EpicComeback/message/644514208 | $NVDA anyone who bought calls today is a sucker.
+- mentions_earnings | https://stocktwits.com/rovertrades759/message/644514414 | $NVDA when’s their Earnings?
+- mentions_options | https://stocktwits.com/AfroJoe/message/644516417 | $NVDA fucking moron. anyone who bought calls today made money. Sorry you lost money. so stupid
+
+=== YOUR NOTES (fill in) ===
+- Major narrative drivers today:
+- Any unusual spikes / anomalies:
+- What to watch next session:

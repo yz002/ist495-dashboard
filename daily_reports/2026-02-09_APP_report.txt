@@ -1,0 +1,55 @@
+============================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Ticker: APP
+Analysis Date (ET): 2026-02-09
+Window (ET): 2026-02-09T00:00:00-05:00 -> 2026-02-10T00:00:00-05:00
+Window (UTC): 2026-02-09T05:00:00Z -> 2026-02-10T05:00:00Z
+============================================================================
+
+=== SUMMARY ===
+- Total posts: 56
+- Bullish: 21 | Bearish: 3 | Unlabeled: 32
+- Net sentiment: 0.321429
+
+=== HOURLY NET SENTIMENT (ET) ===
+- hour=17 bull=1 bear=0 unl=3 total=4 net=0.250000 Δ=
+- hour=18 bull=11 bear=1 unl=12 total=24 net=0.416667 Δ=0.166667
+- hour=19 bull=5 bear=2 unl=14 total=21 net=0.142857 Δ=-0.273810
+- hour=20 bull=4 bear=0 unl=3 total=7 net=0.571429 Δ=0.428571
+
+=== SENTIMENT VOLATILITY (STD of hourly net sentiment) ===
+- volatility_std: 0.188231
+
+=== TOP KEYWORDS ===
+LAST(5), SHORT(5), STOCK(5), EARNINGS(4), CALLS(4), PRICE(4), SEE(4), BEFORE(3), WOW(3), BACK(3), LET(3), QUICKLY(2)
+
+=== TOP TICKER MENTIONS (from $TICKER mentions) ===
+- APP: 56
+- SPY: 6
+- MSFT: 3
+- PLTR: 3
+- QQQ: 2
+- PYPL: 1
+- AUID: 1
+- NOW: 1
+- RDDT: 1
+- TTD: 1
+- APPX: 1
+
+=== NOTES / THEME FLAGS ===
+mentions_options(8), mentions_earnings(5), has_link(4)
+
+=== NOTABLE POSTS (flagged) ===
+- has_link | https://stocktwits.com/UgoGreg/message/644513687 | $APP https://youtu.be/b4CDDEB3OQo
+- mentions_options,mentions_earnings | https://stocktwits.com/followtrendm/message/644513788 | $APP I have attended all earnings conference calls in the last 1 year. I have confidence in the Management team Adam and Matt. I recently added to the longs on the pull back. Just going with what my inner gut tell me, I feel this is a well ...
+- mentions_earnings | https://stocktwits.com/WAJeff/message/644514477 | $APP Ok maniacs, I added 477.60. Just give me 500+ tomorrow so I can get out before earnings.
+- mentions_options | https://stocktwits.com/WarrenBuffetsCousin/message/644514540 | $APP lol I have calls sold at 620 by friday and im thinking this thing may rocket to that
+- has_link | https://stocktwits.com/avis2021/message/644514694 | $APP  700+  https://www.aol.com/articles/once-decade-investment-opportunity-2-093200302.html
+- mentions_options | https://stocktwits.com/asit92/message/644515331 | $APP Wow and I thought my $500 calls were a long shot last week, glad I loaded up. Lets go $600 post-ER, lolz
+- mentions_options | https://stocktwits.com/Steezbeez/message/644515492 | $APP ohhh heyyy everyone that already lost an infinite money on calls these past two weeks our news article was false just kidding now when you the fear to touch this name again we are gonna just bring it back up now 🤦🏻‍♂️
+- mentions_options | https://stocktwits.com/Rickyboy06/message/644516196 | $APP this bubble coming back up I see. Calls calls calls, let’s play this bubble
+
+=== YOUR NOTES (fill in) ===
+- Major narrative drivers today:
+- Any unusual spikes / anomalies:
+- What to watch next session:

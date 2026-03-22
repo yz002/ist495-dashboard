@@ -1,0 +1,77 @@
+No.,Ticker,Company,Market Cap,Average Volume,Relative Volume,Volume,Price,Change
+1,AGRZ,Agroz Inc,23.2,434.31,626.28,271998350,1.07,153.55%
+2,EONR,EON Resources Inc,67.2,16372.97,11.82,193535699,1.35,51.12%
+3,TLYS,Tillys Inc,73.13,286.24,164.41,47060591,2.4,47.24%
+4,LWLG,Lightwave Logic Inc,1029.65,2319.17,13.58,31504958,7.08,41.04%
+5,VRA,Vera Bradley Inc,94.49,401.6,11.42,4585673,3.38,35.74%
+6,ATPC,Agape ATP Corp,5.65,1679.31,25.15,42241344,5.65,35.49%
+7,CDXS,Codexis Inc,154.45,1384.33,29.56,40923905,1.71,34.65%
+8,WOOF,Petco Health and Wellness Co Inc,908.42,1933.09,11.62,22454233,3.23,34.58%
+9,BMBL,Bumble Inc,429.54,3078.82,11.12,34226316,3.81,34.15%
+10,OCG,Oriental Culture Holding Ltd,1.49,1557.03,9.9,15417730,0.86,27.41%
+11,FLYT,Tradr 2X Long FLY Daily ETF,,69.86,5.51,384726,11.01,26.70%
+12,HYFM,Hydrofarm Holdings Group Inc,5.79,60.09,5.43,326261,1.24,24.00%
+13,SPRC,SciSparc Ltd,2.68,132.95,25.62,3405675,4.73,22.86%
+14,ROMA,Roma Green Finance Ltd,352.03,388.74,21.21,8244997,5.91,22.36%
+15,QNTM,Quantum BioPharma Ltd,10.55,82.4,38.59,3179878,2.56,21.90%
+16,WTI,W & T Offshore Inc,514.78,3656.64,6.06,22173851,3.46,21.40%
+17,ALPS,ALPS Group Inc,195.52,45.24,10.45,472646,1.17,21.13%
+18,NCRA,"Nocera, Inc",6.04,67.32,89.14,6001288,0.42,21.00%
+19,POLA,Polar Power Inc,6.22,1429.89,25.22,36067226,2.34,20.62%
+20,BNRG,Brenmiller Energy Ltd,0.7,469.7,37.03,17391690,0.98,18.67%
+21,BIOX,Bioceres Crop Solutions Corp,38.28,646.2,20.05,12957779,0.61,16.71%
+22,NXGL,Nexgel Inc,10.25,171.6,25.85,4435688,0.96,16.21%
+23,LCUT,"Lifetime Brands, Inc",78.84,27.75,217.37,6031218,3.48,15.23%
+24,COOT,Australian Oilseeds Holdings Limited,23.99,400.13,7.66,3066735,0.86,15.06%
+25,LXU,"LSB Industries, Inc",1109.31,683.75,8.93,6107199,15.44,14.37%
+26,MI,NFT Ltd,3.23,261.1,11.29,2947507,0.64,13.64%
+27,SLAI,SOLAI Ltd. ADR,19.71,384.46,64.33,24731393,1.05,13.44%
+28,SEED,Origin Agritech Ltd,17.48,79.74,7.75,617756,1.44,12.50%
+29,ORBS,Eightco Holdings Inc,178.71,4545.78,66.74,303382536,0.9,11.67%
+30,LANV,Lanvin Group Holdings Limited,247.92,45.23,10.32,466750,2.12,11.58%
+31,JETD,MAX Airlines -3X Inverse Leveraged ETNs,,73.71,7.49,551767,5.14,11.26%
+32,HIMX,Himax Technologies ADR,1766.67,1091.19,32.86,35860427,10.13,10.71%
+33,CARD,MAX Auto Industry -3X Inverse Leveraged ETN,,19.16,7.8,149433,3.48,10.28%
+34,FLYD,MicroSectors Travel -3x Inverse Leveraged ETN,,1.45,5.03,7291,87.24,9.64%
+35,USO,United States Oil Fund,,16186.76,5.76,93315912,118.37,9.55%
+36,POM,Pomdoctor Ltd. ADR,40.99,797.09,8.77,6987062,0.38,9.51%
+37,CHSN,Chanson International Holding,95.11,9.64,6.87,66277,2.44,8.44%
+38,UAN,CVR Partners LP,1469.18,50.02,7.2,360262,139,7.98%
+39,XPEG,Leverage Shares 2X Long XPEV Daily ETF,,9.7,6.31,61214,13.28,7.30%
+40,TACT,Transact Technologies Inc,34.58,40.4,7.07,285573,3.42,6.54%
+41,SAGT,Sagtec Global Ltd,29.12,80.05,33.22,2659234,2.32,6.42%
+42,TSXD,Direxion Daily Semiconductors Top 5 Bear 2X ETF,,3.16,7.92,25035,15.74,5.73%
+43,MSS,Maison Solutions Inc,5.92,825.47,57.37,47353293,0.24,5.22%
+44,AEMD,Aethlon Medical Inc,2.27,44.88,20.6,924560,1.73,4.81%
+45,BOED,Direxion Daily BA Bear 1X ETF,,7.6,5.88,44754,18.94,4.53%
+46,GAIN,Gladstone Investment Corporation,559.5,187.68,8.36,1568785,14.05,2.93%
+47,SCLS,Stoneport Advisors Commodity Long Short ETF,,0.35,7.18,2515,23.79,2.91%
+48,GRCE,Grace Therapeutics Inc,62.82,133.11,16.32,2171795,4.06,2.78%
+49,EFU,ProShares UltraShort MSCI EAFE -2x Shares,,4.72,9.73,45977,8.77,2.75%
+50,CLPS,CLPS Inc,31.23,18.81,6.22,117080,1.05,2.44%
+51,COAL,Range Global Coal Index ETF,,37.85,5.63,212920,27.04,2.08%
+52,SEF,ProShares Short Financials -1x Shares,,19.75,5.78,114226,34.66,1.70%
+53,CMCI,VanEck CMCI Commodity Strategy ETF,,0.2,17.12,3345,27.93,1.60%
+54,NORW,Global X MSCI Norway ETF,,53.18,6.86,364975,36.13,1.20%
+55,RSBY,Return Stacked Bonds & Futures Yield ETF,,12.74,10.35,131934,18.2,1.19%
+56,VEGI,iShares MSCI Agriculture Producers ETF,,23.36,6.53,152498,46.25,1.13%
+57,PBHC,"Pathfinder Bancorp, Inc",84.22,2.85,6.64,18915,13.64,1.11%
+58,LNAI,Lunai Bioworks Inc,4.65,266.95,107.31,28647918,0.19,1.10%
+59,RNWZ,TrueShares Eagle Global Renewable Energy Income ETF,,1.01,6.98,7055,31.13,0.91%
+60,SJB,ProShares Short High Yield -1x Shares,,216.04,6.59,1423624,15.54,0.62%
+61,WXET,Teucrium 2x Daily Wheat ETF,,9.03,14.52,131162,19.5,0.52%
+62,GMMA,GammaRoad Market Navigation ETF,,0.39,14.35,5630,21.38,0.49%
+63,CORN,Teucrium Corn Fund,,133.24,8.09,1077429,18.59,0.38%
+64,WEAT,Teucrium Wheat Fund,,365.42,5.49,2007285,22.92,0.31%
+65,GPAT,GP-Act III Acquisition Corp,388.67,18.31,5.62,102940,10.8,0.28%
+66,SABS,SAB Biotherapeutics Inc,233.87,428.9,5.11,2192099,4.59,0.22%
+67,DBA,Invesco DB Agriculture Fund,,419.89,5.55,2329045,26.75,0.19%
+68,FLBL,Franklin Senior Loan ETF,,397.66,5.34,2122309,23.01,0.13%
+69,SECU,iShares Securitized Income Active ETF,,26.73,7.37,197127,49.92,0.11%
+70,PDBA,Invesco Agriculture Commodity Strategy No K-1 ETF,,50.07,9.4,470591,35.66,0.08%
+71,ALEX,Alexander & Baldwin Inc,1518.73,815.16,11.07,9023332,20.84,0.05%
+72,KCAI,KraneShares China Alpha Index ETF,,1.4,65.4,91285,32.35,0.05%
+73,LMUB,iShares Long-Term National Muni Bond ETF,,3.36,8885.82,29885082,50.37,0.04%
+74,TMET,iShares Transition-Enabling Metals ETF,,6.56,60.91,399792,32.1,0.04%
+75,TRSY,Xtrackers US 0-1 Year Treasury ETF,,16,26.39,422167,30.11,0.01%
+76,PBRG,Leverage Shares 2X Long PBR Daily ETF,,3.24,7.13,23135,39.31,0.01%

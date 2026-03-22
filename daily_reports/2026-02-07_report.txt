@@ -1,0 +1,176 @@
+======================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Analysis Date (ET): 2026-02-07
+Window (ET): 2026-02-07T00:00:00-05:00 -> 2026-02-08T00:00:00-05:00
+Window (UTC): 2026-02-07T05:00:00Z -> 2026-02-08T05:00:00Z
+======================================================================
+
+Total rows (selected streams, all-day ET): 170
+
+=== ATTENTION / VOLUME ===
+- NVDA: 60 posts (35.3%)
+- TSLA: 59 posts (34.7%)
+- AMD: 31 posts (18.2%)
+- AAPL: 18 posts (10.6%)
+- OPENAI: 2 posts (1.2%)
+
+=== SENTIMENT SUMMARY ===
+- AAPL: bullish=3, bearish=0, unlabeled=15, total=18, net=0.166667
+- AMD: bullish=9, bearish=0, unlabeled=22, total=31, net=0.290323
+- NVDA: bullish=16, bearish=1, unlabeled=43, total=60, net=0.250000
+- OPENAI: bullish=0, bearish=1, unlabeled=1, total=2, net=-0.500000
+- TSLA: bullish=20, bearish=11, unlabeled=28, total=59, net=0.152542
+
+=== HOURLY NET SENTIMENT (ET) ===
+[AAPL]
+  hour=08 bull=0 bear=0 unl=2 total=2 net=0.000000 Δ=
+  hour=09 bull=1 bear=0 unl=3 total=4 net=0.250000 Δ=0.250000
+  hour=10 bull=0 bear=0 unl=6 total=6 net=0.000000 Δ=-0.250000
+  hour=11 bull=0 bear=0 unl=1 total=1 net=0.000000 Δ=0.000000
+  hour=12 bull=1 bear=0 unl=0 total=1 net=1.000000 Δ=1.000000
+  hour=13 bull=1 bear=0 unl=0 total=1 net=1.000000 Δ=0.000000
+  hour=14 bull=0 bear=0 unl=3 total=3 net=0.000000 Δ=-1.000000
+
+[AMD]
+  hour=10 bull=1 bear=0 unl=8 total=9 net=0.111111 Δ=
+  hour=11 bull=2 bear=0 unl=3 total=5 net=0.400000 Δ=0.288889
+  hour=12 bull=3 bear=0 unl=8 total=11 net=0.272727 Δ=-0.127273
+  hour=13 bull=3 bear=0 unl=2 total=5 net=0.600000 Δ=0.327273
+  hour=14 bull=0 bear=0 unl=1 total=1 net=0.000000 Δ=-0.600000
+
+[NVDA]
+  hour=10 bull=4 bear=0 unl=16 total=20 net=0.200000 Δ=
+  hour=11 bull=1 bear=0 unl=13 total=14 net=0.071429 Δ=-0.128571
+  hour=12 bull=3 bear=1 unl=8 total=12 net=0.166667 Δ=0.095238
+  hour=13 bull=6 bear=0 unl=4 total=10 net=0.600000 Δ=0.433333
+  hour=14 bull=2 bear=0 unl=2 total=4 net=0.500000 Δ=-0.100000
+
+[OPENAI]
+  hour=13 bull=0 bear=1 unl=1 total=2 net=-0.500000 Δ=
+
+[TSLA]
+  hour=10 bull=7 bear=2 unl=4 total=13 net=0.384615 Δ=
+  hour=11 bull=5 bear=1 unl=6 total=12 net=0.333333 Δ=-0.051282
+  hour=12 bull=3 bear=4 unl=10 total=17 net=-0.058824 Δ=-0.392157
+  hour=13 bull=5 bear=1 unl=6 total=12 net=0.333333 Δ=0.392157
+  hour=14 bull=0 bear=3 unl=2 total=5 net=-0.600000 Δ=-0.933333
+
+=== SENTIMENT VOLATILITY (STD of hourly net sentiment) ===
+- AAPL: 0.472456
+- TSLA: 0.419168
+- AMD: 0.236497
+- NVDA: 0.228983
+- OPENAI: nan
+
+=== TOP KEYWORDS (per ticker) ===
+- AAPL: ALL(3), HTTPS(3), WHAT(2), AAPL(2), MONEY(2), TREND(2), PRICE(2), YOUTU(2), 99GGXYPKAAM(2), ANALYST(2), TARGETS(2), SAID(1)
+- AMD: ANALYST(4), NEXT(4), LISA(3), TARGETS(3), SEE(3), DOUBLE(3), THAN(2), CAGR(2), MARKET(2), POTENTIAL(2), VIEW(2), PRICE(2)
+- NVDA: AMP(6), HTTPS(5), MONDAY(4), ANALYST(4), VIEW(4), PRICE(4), TARGETS(4), COMMENTARY(4), MARKET(4), NEEDS(3), NEXT(3), YOUTU(3)
+- OPENAI: HAVE(1), AFFILIATION(1), SCAMMED(1), ICO(1), ANY(1), WHY(1), JOKE(1), WHEN(1), PPL(1), SAY(1)
+- TSLA: TESLA(13), HTTPS(5), COM(5), AMP(4), GOOD(4), MANY(3), QUOT(3), ANALYST(3), TARGETS(3), HOW(3), SELL(3), WHAT(3)
+
+=== NOTES / THEME FLAGS (per ticker) ===
+- AAPL: has_link(5), mentions_options(1), mentions_chart(1), mentions_earnings(1)
+- AMD: has_link(6), mentions_options(2), mentions_earnings(1)
+- NVDA: has_link(10), mentions_options(4), mentions_earnings(2), mentions_chart(1)
+- OPENAI: (none)
+- TSLA: has_link(8), mentions_options(4), mentions_chart(2), mentions_earnings(1)
+
+=== TOP MENTIONED TICKERS (overall, from $TICKER mentions) ===
+- TSLA: 67
+- NVDA: 65
+- AMD: 32
+- AAPL: 21
+- SPY: 20
+- QQQ: 18
+- AMZN: 11
+- MSFT: 8
+- BTC: 8
+- DJT: 7
+- PLTR: 6
+- GOOGL: 5
+- GME: 5
+- INTC: 4
+- MU: 4
+- IREN: 3
+- SMH: 3
+- AMC: 3
+- ASTS: 3
+- AVGO: 3
+
+=== TOP MENTIONED TICKERS (per stream) ===
+- AAPL: AAPL(18), QQQ(3), ABNB(1), DIS(1), SHOP(1), UBER(1), SPY(1), AMD(1), INTC(1), NVDA(1), TSM(1), AMZN(1)
+- AMD: AMD(31), NVDA(4), SMH(3), INTC(3), AMC(3), PLTR(3), APLD(2), IREN(2), LUNR(2), RDW(2), QQQ(2), MU(2)
+- NVDA: NVDA(60), SPY(12), QQQ(11), TSLA(8), AMZN(6), MSFT(4), PLTR(3), GOOGL(2), AVGO(2), META(2), BTC(2), AAPL(2)
+- OPENAI: OPENAI(2)
+- TSLA: TSLA(59), SPY(7), BTC(6), DJT(6), AMZN(4), GME(3), MSFT(3), NIO(2), QQQ(2), SLV(2), GOOGL(2), GLD(1)
+
+=== CROSS-TICKER SPILLOVER MATRIX (count of posts in stream mentioning target) ===
+      AMD  NVDA  AAPL  TSLA
+AMD     0     4     1     0
+NVDA    0     0     2     8
+AAPL    1     1     0     0
+TSLA    0     0     0     0
+
+=== NORMALIZED SPILLOVER (row-normalized %) ===
+       AMD  NVDA  AAPL  TSLA
+AMD    0.0  80.0  20.0   0.0
+NVDA   0.0   0.0  20.0  80.0
+AAPL  50.0  50.0   0.0   0.0
+TSLA   0.0   0.0   0.0   0.0
+
+=== NOTABLE POSTS (sample, per ticker) ===
+[AAPL]
+  - has_link,mentions_options | https://stocktwits.com/FRAGMENTS/message/644371583 | $AAPL This week’s post is the weekly on-record file.    Three inputs only:    What CEOs wrote in shareholder letters and investor decks — numbers, ranges, targets that can be checked later.     What CEOs said in public m...
+  - mentions_chart | https://stocktwits.com/RenkoTradingSystem/message/644374158 | $AAPL     Trend Analysis  Bullish Breakout: The weekly Renko chart shows a strong recovery from the early 2025 low of 191.82. The current price of 278.12 is trending upward with two consecutive green bricks.    Moving Av...
+  - has_link | https://stocktwits.com/UgoGreg/message/644376561 | $AAPL https://youtu.be/99ggXypKAaM
+  - has_link | https://stocktwits.com/UgoGreg/message/644376620 | $AAPL https://youtu.be/99ggXypKAaM
+  - has_link | https://stocktwits.com/InvestingYoungDotCA/message/644377225 | $AAPL  View the new Price Targets &amp; Analyst Commentary for list of Analyst Firms below     1. Argus  2. TD Cowen  3. Rosenblatt  4. Evercore ISI  5. DA Davidson  6. HSBC  7. UBS  8. Baird  9. Goldman Sachs  10. Barcl...
+  - mentions_earnings | https://stocktwits.com/FonsieTrader/message/644378969 | $AAPL 🚀 Completely immune to the market’s wild volatility! Momentum is firing on all cylinders here, with price gearing up for a breakout toward $316.00! Plus, recent developments like record Q1 2026 earnings with $143.8...
+
+[AMD]
+  - has_link | https://stocktwits.com/InvestingYoungDotCA/message/644377076 | $AMD  View the new Price Targets &amp; Analyst Commentary for the list of Analyst Firms below  Roth Capital Truist UBS BofA (Bank of America) Mizuho Morgan Stanley Bernstein Piper Sandler RBC Capital Citi KeyBanc Cantor ...
+  - has_link | https://stocktwits.com/InvestingYoungDotCA/message/644377129 | $INTC See details for all new WS Analyst ratings in the link below     Rosenblatt (Sell)    Deutsche Bank (Hold)    Northland (Outperform)    KeyBanc (Overweight)    Benchmark (Buy)    Citi (Neutral)    JPMorgan (Underwe...
+  - has_link | https://stocktwits.com/InvestingYoungDotCA/message/644377142 | $NVDA  View the new Price Targets &amp; Analyst Commentary for the list of Analyst Firms below          1. Truist  2. Jefferies  3. Baird  4. Benchmark  5. Evercore ISI  6. Susquehanna  7. JPMorgan  8. Morgan Stanley  9....
+  - has_link | https://stocktwits.com/UgoGreg/message/644377743 | $AMD https://youtu.be/-CUc2sR6UEg
+  - has_link | https://stocktwits.com/FrankInAllCAPS/message/644378516 | “Chief Executive Officer Matthew Lipman has voluntarily reduced his annual base cash salary to $1.00 for the next year, aligning executive remuneration directly with common shareholder equity appreciation”  And NO ONE is...
+  - mentions_options | https://stocktwits.com/ElliottwaveForecast/message/644379117 | $AMD 194.96–150.67 — trading inside the High-Frequency zone.  Structure calls for a minimum three-wave reaction from here.  Trade the Blue Boxes, High Frequency areas.  #elliottwave #ElliottWave #trading #HighFrequency #...
+
+[NVDA]
+  - mentions_options | https://stocktwits.com/Blueville/message/644375919 | $ARM $NVDA $TSLA The top performing options lottos of the week from Feb 2 - 6. #ConsistentProfits #BluevilleCapital
+  - has_link | https://stocktwits.com/UgoGreg/message/644376334 | $NVDA https://youtu.be/ygBN8MilTyc
+  - has_link | https://stocktwits.com/UgoGreg/message/644376360 | $NVDA https://youtu.be/99ggXypKAaM
+  - mentions_chart | https://stocktwits.com/RenkoTradingSystem/message/644376476 | $NVDA Weekly Renko Chart    One more Green Brick this coming week would be a Buy Signal. If that happens then it could be purchased on Monday, Feb. 16 at the earliest to confirm that there are still two Green Bricks.    ...
+  - has_link | https://stocktwits.com/Topfloor/message/644376493 | $DUOT Here is playlist showcasing  Duos Technologies past 2 years. $AMZN  and $NVDA  Definitily mentioned.  https://youtube.com/playlist?list=PLIztzS1lCU5IO9swXjlfwBnBtRzarsFqm&amp;si=qHXb-rEbPZXqzYal
+  - has_link,mentions_earnings | https://stocktwits.com/InvestingYoungDotCA/message/644377065 | $GOOG $GOOGL  View the new Price Targets &amp; Analyst Commentary for list of Analyst Firms below   : 1. TD Cowen 2. Pivotal Research 3. Barclays 4. JPMorgan 5. Canaccord 6. Oppenheimer 7. Citi 8. Piper Sandler 9. Wells ...
+
+[OPENAI]
+  (none flagged)
+
+[TSLA]
+  - mentions_options | https://stocktwits.com/ARRIagaa/message/644375358 | $TSLA So many fools saying it will end in bankroupt, BUT, nobody puts short
+  - has_link | https://stocktwits.com/Boomskitothemoonski/message/644375958 | $TSLA https://x.com/jjackbrandt/article/2019852423980875794
+  - has_link | https://stocktwits.com/Parched_River_Capital/message/644376499 | $TSLA NVIDIA Just Changed Self Driving Forever &amp; Why Tesla Should Be Worried https://www.geeky-gadgets.com/nvidia-alpameo-self-driving/
+  - has_link | https://stocktwits.com/Boomskitothemoonski/message/644376666 | $TSLA Full story:  https://teslamagz.com/news/tesla-fsd-helps-get-georgia-man-to-er-during-4-a-m-heart-attack/
+  - has_link | https://stocktwits.com/InvestingYoungDotCA/message/644377092 | $TSLA  View the latest Price Targets &amp; Analyst Commentary for the list of Analyst Firms below  1. Mizuho 2. Canaccord 3. TD Cowen 4. Freedom Capital 5. Truist 6. Morgan Stanley 7. Goldman Sachs 8. Barclays 9. UBS 10....
+  - has_link | https://stocktwits.com/InvestingYoungDotCA/message/644377240 | $NIO   View the latest Price Targets &amp; Analyst Commentary for the list of Analyst Firms below    1. Macquarie 2. BofA (Bank of America) 3. UBS 4. Goldman Sachs 5. Morgan Stanley 6. Citigroup 7. Mizuho 8. J.P. Morgan ...
+
+
+=== DAILY_METRICS.CSV SNAPSHOT (if available) ===
+      date  window_start_et    window_end_et ticker  total_posts  bullish  bearish  unlabeled  bullish_pct  bearish_pct  net_sentiment  sentiment_volatility  max_hourly_sentiment  min_hourly_sentiment  sentiment_range  largest_hourly_change  spillover_mentions_total spillover_top_target  spillover_top_target_pct  mentions_earnings_count  mentions_options_count  has_link_count  mentions_chart_count                                                                                   top_keywords_12
+2026-02-07 2026-02-07 11:00 2026-02-07 15:00    AMD           22        8        0         14     0.363636     0.000000       0.363636              0.251278              0.600000              0.000000         0.600000               0.600000                         2                 NVDA                  0.500000                        1                       2               3                     0                                 NEXT|DOUBLE|HTTPS|SHARE|HAS|SEE|LISA|LONG|TOP|PALANTIR|KEEP|YOUTU
+2026-02-07 2026-02-07 11:00 2026-02-07 15:00   NVDA           40       12        1         27     0.300000     0.025000       0.275000              0.255118              0.600000              0.071429         0.528571               0.433333                         9                 TSLA                  0.777778                        1                       3               3                     0                                  MARKET|MONDAY|HTTPS|HOW|STOCK|TECH|SUPER|GOT|HUGE|HAND|SURE|NEXT
+2026-02-07 2026-02-07 11:00 2026-02-07 15:00   AAPL            6        2        0          4     0.333333     0.000000       0.333333              0.577350              1.000000              0.000000         1.000000               1.000000                         0                  NaN                  0.000000                        1                       0               1                     0 SHARE|AAPL|COMPLETELY|IMMUNE|MARKET|WILD|VOLATILITY|MOMENTUM|UPDATE|ANALYST|TARGETS|HAYDENGOLDING
+2026-02-07 2026-02-07 11:00 2026-02-07 15:00   TSLA           46       13        9         24     0.282609     0.195652       0.086957              0.441840              0.333333             -0.600000         0.933333               0.933333                         0                  NaN                  0.000000                        1                       3               3                     2                                   TESLA|GOOD|HOW|SELL|HTTPS|COM|WHAT|LIKE|ALL|YEAR|TAXI|EXPANSION
+2026-02-07 2026-02-07 11:00 2026-02-07 15:00 OPENAI            2        0        1          1     0.000000     0.500000      -0.500000              0.000000             -0.500000             -0.500000         0.000000               0.000000                         0                  NaN                  0.000000                        0                       0               0                     0                                            HAVE|AFFILIATION|SCAMMED|ICO|ANY|WHY|JOKE|WHEN|PPL|SAY
+
+=== INTERPRETATION (auto) ===
+- Most bullish stream (net): AMD (net=0.290, n=31)
+- Least bullish stream (net): OPENAI (net=-0.500, n=2)
+- Attention concentration: top stream NVDA captured 60/170 (35.3%) of posts.
+- BTC appeared in mentions: 8 times (indicator of crypto spillover into equity streams).
+
+=== YOUR NOTES (fill in) ===
+- Major narrative drivers today:
+- Any unusual spikes / anomalies:
+- What to watch next session:

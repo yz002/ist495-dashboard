@@ -1,0 +1,90 @@
+No.,Ticker,Company,Market Cap,Average Volume,Relative Volume,Volume,Price,Change
+1,PRSO,Peraso Inc,19.12,408.92,894.85,365919129,2.04,151.54%
+2,DXST,Decent Holding Inc,11.31,25970.15,22.9,594689366,0.28,83.61%
+3,EDSA,Edesa Biotech Inc,54.44,3427.61,9.38,32145876,6.52,80.61%
+4,CRE,Cre8 Enterprise Ltd,9.13,56.35,429.57,24207863,4.53,72.90%
+5,ANTX,AN2 Therapeutics Inc,78.1,120.19,58.02,6973188,2.85,66.67%
+6,DAWN,Day One Biopharmaceuticals Inc,2240.95,2738.52,28.62,78371270,21.2,65.88%
+7,EPSM,Epsium Enterprise Ltd,23.38,55.76,34.88,1944577,1.74,64.15%
+8,SYNX,Silynxcom Ltd,10.47,124.2,581.84,72261678,1.58,57.99%
+9,MRVU,Direxion Daily MRVL Bull 2X ETF,,10.45,11.98,125196,28.64,37.31%
+10,MVLL,GraniteShares 2x Long MRVL Daily ETF,,312,7.95,2481045,22.03,35.57%
+11,QURE,uniQure N.V,879.09,3011.7,5.83,17551728,14.27,33.99%
+12,AIFF,Firefly Neuroscience Inc,26.29,5650.64,6.87,38802848,1.85,30.28%
+13,QCLS,Q/C Technologies Inc,35.34,1375.64,7.95,10939559,4.5,29.31%
+14,IBG,Innovation Beverage Group Ltd,3.83,104.79,150.39,15759498,5.53,28.60%
+15,ISPR,Ispire Technology Inc,138.64,52.48,9.08,476379,2.42,27.37%
+16,RITR,Reitar Logtech Holdings Ltd,50.57,1059.32,20.93,22169151,0.81,25.90%
+17,LUNG,Pulmonx Corp,83.32,542.09,8.27,4480693,2.02,25.47%
+18,TURB,Turbo Energy S.A. ADR,41.66,3461.82,7.16,24788574,3.78,25.17%
+19,TPET,Trio Petroleum Corp,23.74,22128.63,11.76,260269682,1.93,21.38%
+20,ANY,Sphere 3D Corp,5.96,224.13,80.82,18113227,1.77,21.23%
+21,MOBX,Mobix Labs Inc,107.19,52188.13,5.5,286931850,1.04,20.11%
+22,GGR,Gogoro Inc,68.84,16.15,6.69,107982,4.66,19.18%
+23,PED,PEDEVCO Corp,73,280.13,7.22,2023074,0.76,18.94%
+24,SWBI,Smith & Wesson Brands Inc,622.47,534,6.43,3435727,13.99,18.66%
+25,MRVL,Marvell Technology Inc,78234.9,14783.85,6.09,90002402,89.57,18.35%
+26,JZXN,Jiuzi Holdings Inc,2.13,3442.23,5.27,18139385,1.53,16.79%
+27,MXC,Mexco Energy Corp,31.1,22.46,10.9,244824,15.2,15.85%
+28,EVC,Entravision Communications Corp,314.78,252.59,6.95,1756343,3.46,14.57%
+29,XCH,XCHG Ltd ADR,60.56,34.15,5.02,171309,1.48,13.84%
+30,GEVO,Gevo Inc,518.54,2663.38,5.86,15615905,2.14,13.23%
+31,USO,United States Oil Fund,,9419.16,7.29,68650381,108.77,12.94%
+32,BTBD,BT Brands Inc,9.15,39.34,13.01,511952,1.54,12.41%
+33,INDO,Indonesia Energy Corp Ltd,84.68,2155.16,7.26,15637907,5.65,11.88%
+34,WXET,Teucrium 2x Daily Wheat ETF,,5.4,11.02,59530,20.85,11.41%
+35,EONR,EON Resources Inc,33.46,7314.87,11.33,82885790,0.67,9.79%
+36,SCKT,Socket Mobile Inc,7.8,19.91,212.43,4230017,0.98,9.26%
+37,BNO,United States Brent Crude Oil Fund,,1237.9,8.91,11032869,43.95,9.22%
+38,USE,USCF Energy Commodity Strategy Absolute Return Fund,,0.47,320.78,150729,27.79,7.66%
+39,CRCD,T-REX 2X Inverse CRCL Daily Target ETF,,699.31,5.19,3632267,7.55,7.24%
+40,FTW,Presidio Production Co,620.45,65.93,5.91,389583,13.92,7.08%
+41,OLOX,Olenox Industries Inc,11.82,1088.64,5.08,5534955,1.23,6.96%
+42,ANNA,AleAnna Inc,272.61,69.62,58,4037832,4.09,6.51%
+43,VRM,Vroom Inc,85.79,2.88,6.82,19627,16.5,6.25%
+44,USL,United States 12 Month Oil Fund LP,,15.42,5.8,89380,44.09,6.10%
+45,UAN,CVR Partners LP,1338.34,38.62,5.05,194963,126.75,5.79%
+46,WEAT,Teucrium Wheat Fund,,242.09,9.15,2214795,23.61,5.64%
+47,JETD,MAX Airlines -3X Inverse Leveraged ETNs,,54.06,5.33,288016,4.49,5.40%
+48,OILK,ProShares K-1 Free Crude Oil ETF,,111.2,5.18,575735,49.49,4.72%
+49,SDD,ProShares UltraShort SmallCap600 -2x Shares,,2.03,5.12,10402,11.62,4.67%
+50,VOC,VOC Energy Trust,61.37,85.68,5.63,482226,3.61,4.34%
+51,DBC,Invesco DB Commodity Index Tracking Fund,,744.11,6,4462585,27.51,3.73%
+52,ATRA,Atara Biotherapeutics Inc,37.28,320.62,9.68,3103158,5.17,3.40%
+53,CXRN,Teucrium 2x Daily Corn ETF,,1.42,8.08,11467,20.18,3.23%
+54,CERY,SPDR Bloomberg Enhanced Roll Yield Commodity Strategy No K-1 ETF,,161.9,5.02,812030,34.17,3.01%
+55,TAGS,Teucrium Agricultural Fund,,5.18,11.16,57862,24.58,2.71%
+56,CRTO,Criteo S.A ADR,1009.7,580.97,5.28,3064714,19.74,2.33%
+57,PTLE,PTL Ltd,60.99,51.27,9.33,478563,9.71,2.32%
+58,RSBY,Return Stacked Bonds & Futures Yield ETF,,11.93,6.35,75764,17.96,2.12%
+59,CMCM,Cheetah Mobile Inc ADR,79.56,17.48,5.28,92387,7.68,1.99%
+60,REPX,Riley Exploration Permian Inc,711.94,229.22,5.42,1242602,33.01,1.88%
+61,CORN,Teucrium Corn Fund,,66.82,14.12,943203,18.52,1.81%
+62,MGN,Megan Holdings Ltd,48.42,158.05,13.17,2081889,2.98,1.71%
+63,EFU,ProShares UltraShort MSCI EAFE -2x Shares,,3.66,6.87,25116,8.63,1.65%
+64,INEO,INNEOVA Holdings Ltd,8.93,147.8,5.28,780913,0.54,1.50%
+65,HDGE,Ranger Equity Bear -1x Shares,,111.58,7.18,800774,17.45,1.45%
+66,GDT,WisdomTree Efficient TIPS Plus Gold Fund,,2.3,8.61,19785,43.28,1.29%
+67,PDBA,Invesco Agriculture Commodity Strategy No K-1 ETF,,35.66,12.52,446344,35.65,1.28%
+68,DBA,Invesco DB Agriculture Fund,,290.75,12.15,3532576,26.71,1.14%
+69,MKOR,Matthews Korea Active ETF,,18.7,5.87,109773,45.1,1.07%
+70,PBOG,Portfolio Building Block Integrated Oil & Gas & Expln & Prod Index ETF,,254.54,21.25,5409672,31.85,1.04%
+71,BGLD,FT Vest Gold Strategy Quarterly Buffer ETF,,41.92,6.97,292102,18.17,1.00%
+72,GXDW,Global X Dorsey Wright Thematic ETF,,1.15,30.59,35065,23.26,0.79%
+73,GROV,Grove Collaborative Holdings Inc,53.39,54.74,6.05,331277,1.29,0.78%
+74,NORW,Global X MSCI Norway ETF,,39.68,6.21,246449,35.72,0.76%
+75,IXC,iShares Global Energy ETF,,636.35,10.22,6500874,52.62,0.73%
+76,OILT,Texas Capital Texas Oil Index ETF,,3.26,5.04,16394,29.45,0.64%
+77,MBNE,State Street Nuveen Municipal Bond ESG ETF,,2.21,10.52,23241,29.4,0.63%
+78,FARX,Frontier Asset Absolute Return ETF,,0.89,6.21,5526,28.45,0.49%
+79,SEA,U.S. Global Sea to Sky Cargo ETF,,13.77,30.41,418837,16.76,0.48%
+80,CPII,American Beacon Ionic Inflation Protection ETF,,0.18,25.26,4515,19.13,0.45%
+81,SJCP,SanJac Alpha Core Plus Bond ETF,,0.32,6.17,2001,25.48,0.42%
+82,PAYH,TrueShares S&P Autocallable High Income ETF,,3.19,11.9,37997,23.69,0.41%
+83,SJB,ProShares Short High Yield -1x Shares,,158.38,15.36,2432115,15.46,0.39%
+84,WIP,SPDR Citi International Government Inflation-Protected Bond ETF,,74.22,20.96,1555604,40.25,0.37%
+85,NA,Nano Labs Ltd,69.77,53.1,10.95,581442,2.96,0.34%
+86,HYAC,Haymaker Acquisition Corp. 4,335.28,139.01,7.75,1076973,11.49,0.26%
+87,XDAT,Franklin Exponential Data ETF,,0.57,7.18,4095,22.66,0.11%
+88,BAK,Braskem S.A. ADR,847.98,1619.26,5.49,8892333,4.91,0.10%
+89,SPTU,State Street SPDR Portfolio Ultra Short TBill ETF,,4.4,6.7,29438,25.02,0.04%

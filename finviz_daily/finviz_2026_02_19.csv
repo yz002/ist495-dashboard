@@ -1,0 +1,67 @@
+No.,Ticker,Company,Market Cap,Average Volume,Relative Volume,Volume,Price,Change
+1,KNRX,Knorex Ltd,,38.07,3082.51,63324381,2.32,157.38%
+2,AGAE,Allied Gaming & Entertainment Inc,20.98,816.45,335.11,147640231,0.56,81.95%
+3,BATL,Battalion Oil Corp,74.87,5380.01,14.45,41947934,4.55,49.18%
+4,DRMA,Dermata Therapeutics Inc,6.65,1516.81,14.54,11897714,1.88,46.48%
+5,RELY,Remitly Global Inc,3678.92,3140.87,9.09,15400202,17.6,29.31%
+6,CISS,C3is Inc,0.48,2637.16,21.77,30979542,2.15,29.04%
+7,TRNR,Interactive Strength Inc,2.66,1580.6,319.49,272494314,0.51,23.94%
+8,TALK,Talkspace Inc,783.59,1270.48,9.94,6812073,4.73,20.36%
+9,BAND,Bandwidth Inc,474.92,235.83,6.58,837078,15.56,19.78%
+10,JZXN,Jiuzi Holdings Inc,2.07,2469.24,6.87,9106734,1.49,19.19%
+11,APUS,Apimeds Pharmaceuticals US Inc,18.74,131.07,18.58,1313773,1.49,17.32%
+12,DGNX,Diginex Ltd,179.43,2765.23,7.2,10739934,0.86,14.65%
+13,MPT,Medical Properties Trust Inc,3686.29,6434.27,5.14,17853116,6.13,14.12%
+14,ELAB,PMGC Holdings Inc,1.63,1101.07,15.71,9334448,1.38,11.80%
+15,WTI,W & T Offshore Inc,388.31,1776.37,5.5,5272812,2.61,11.54%
+16,FIGG,Leverage Shares 2x Long FIG Daily ETF,,615.24,30,9959028,1.94,11.49%
+17,TPET,Trio Petroleum Corp,5.75,714.49,7.25,2796983,0.47,10.85%
+18,YIBO,Planet Image International Ltd,56.74,328.26,65.04,11520089,0.96,10.10%
+19,JZ,Jianzhi Education Technology Group Co Ltd ADR,2.54,67.71,147.78,5399031,0.9,9.77%
+20,BIAF,BioAffinity Technologies Inc,5.66,106,25.46,1456267,1.26,9.57%
+21,ATEX,Anterix Inc,670.65,306.52,5.23,865389,35.8,8.88%
+22,BANL,CBL International Ltd,11.14,65.64,16.44,579811,0.41,8.55%
+23,BOXL,Boxlight Corporation,1.34,6100.47,9.03,29713362,1.41,8.46%
+24,CDIO,Cardio Diagnostics Holdings Inc,4.2,1354.79,18.6,13597044,2.3,7.98%
+25,TOVX,Theriva Biologics Inc,7.36,5266.1,90.74,257839127,0.21,7.40%
+26,DLPN,Dolphin Entertainment Inc,18.55,41.92,5.9,133376,1.53,6.99%
+27,FF,Futurefuel Corp,184.63,211.02,6.95,791040,4.22,6.71%
+28,ENVB,Enveric Biosciences Inc,3.32,711.68,44.15,16956236,2.39,6.70%
+29,JETD,MAX Airlines -3X Inverse Leveraged ETNs,,30.76,8.69,143575,3.53,6.66%
+30,DASX,Tradr 2X Long DASH Daily ETF,,11.87,15.74,100384,11.02,6.58%
+31,AREB,American Rebel Holdings Inc,0.15,1404.12,9.48,7182238,0.18,6.41%
+32,FIG,Figma Inc,12754.79,8555.26,9.87,45545823,25.74,6.39%
+33,AVXX,Defiance Daily Target 2x Long AVAV ETF,,158.68,6.54,557588,8.68,5.34%
+34,DNNG,Leverage Shares 2x Long DNN Daily ETF,,2.56,8.92,12240,15.4,5.08%
+35,EDSA,Edesa Biotech Inc,8.69,73.27,11.39,450532,1.04,4.79%
+36,WKSP,Worksport Ltd,13.36,225.24,17.68,2149143,1.36,4.70%
+37,WXET,Teucrium 2x Daily Wheat ETF,,2.87,7.62,11746,17.44,3.52%
+38,EWZS,iShares MSCI Brazil Small-Cap ETF,,350.59,12.3,2327154,15.33,1.55%
+39,UCAR,U Power Ltd,7.89,21.54,6.28,72636,1.42,1.43%
+40,FLBR,Franklin FTSE Brazil ETF,,126.26,13.91,948038,23.52,1.36%
+41,AUNA,Auna S.A,368.95,292.74,6.17,974347,4.99,1.32%
+42,DVXE,WEBs Energy XLE Defined Volatility ETF,,0.16,9.83,826,35.25,1.28%
+43,HIMZ,Defiance Daily Target 2X Long HIMS ETF,,8920.41,5.81,27952388,1.19,0.84%
+44,IEZ,iShares U.S. Oil Equipment & Services ETF,,272.76,7.92,1165308,28.36,0.66%
+45,SCLS,Stoneport Advisors Commodity Long Short ETF,,0.96,10.85,5601,20.49,0.61%
+46,SZK,ProShares UltraShort Consumer Staples,,10.23,5.56,30531,10.05,0.47%
+47,SMWB,Similarweb Ltd,220.88,674.24,11.83,4303446,2.56,0.39%
+48,TEMX,Touchstone Sands Capital Emerging Markets ex-China Growth ETF,,0.38,15.16,3075,32.78,0.39%
+49,SPPL,Simpple Ltd,13.79,5.24,6.46,18280,2.83,0.35%
+50,GIG,GigCapital7 Corp,353.5,150.86,6.49,526345,10.6,0.24%
+51,GGM,GGM Macro Alignment ETF,,1.32,19.22,13660,28.94,0.22%
+52,TACO,Berto Acquisition Corp,382.32,63.6,7.77,265500,10.19,0.20%
+53,MUNB,Northern Trust 2035 Tax-Exempt Distributing Ladder ETF,,1.8,18,17444,102.6,0.15%
+54,CATF,American Century California Municipal Bond ETF,,4.94,8.78,23301,50.84,0.10%
+55,VCIC,Vine Hill Capital Investment Corp,312.4,92.08,5.08,251105,10.65,0.09%
+56,BBHM,BBH Select Mid Cap ETF,,92.33,11.18,554738,11.7,0.09%
+57,LALT,First Trust Multi-Strategy Alternative ETF,,13.45,11.58,83683,23.94,0.06%
+58,MCW,Mister Car Wash Inc,2287.81,1817.96,5.52,5418679,6.98,0.06%
+59,SCPQ,Social Commerce Partners Corp,135.16,2.98,16.23,26017,9.88,0.05%
+60,IHS,IHS Holding Ltd,2668.86,1225.39,6.76,4467017,8,0.05%
+61,FIGX,FIGX Capital Acquisition Corp,196.28,35.69,6.52,125000,10.12,0.05%
+62,TMB,Thornburg Multi Sector Bond ETF,,19.19,36.34,374599,25.87,0.04%
+63,TOS,Twin Oak Strategic Solutions ETF,,0.13,6.77,473,25.49,0.03%
+64,RLY,State Street Multi-Asset Real Return ETF,,121.62,6.33,413522,35.12,0.02%
+65,RAAR,Reckoner Yield Enhanced AAA CLO Reinvesting ETF,,0.18,13.71,1300,50.05,0.02%
+66,IBDZ,iShares iBonds Dec 2034 Term Corporate ETF,,220.58,14.7,1741798,26.59,0.02%

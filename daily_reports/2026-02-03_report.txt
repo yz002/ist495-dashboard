@@ -1,0 +1,150 @@
+======================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Analysis Date (ET): 2026-02-03
+Window (ET): 2026-02-03T00:00:00-05:00 -> 2026-02-04T00:00:00-05:00
+Window (UTC): 2026-02-03T05:00:00Z -> 2026-02-04T05:00:00Z
+======================================================================
+
+Total rows (selected streams, all-day ET): 121
+
+=== ATTENTION / VOLUME ===
+- SMCI: 106 posts (87.6%)
+- TSLA: 8 posts (6.6%)
+- AAPL: 3 posts (2.5%)
+- NVDA: 2 posts (1.7%)
+- AMD: 2 posts (1.7%)
+
+=== SENTIMENT SUMMARY ===
+- AAPL: bullish=2, bearish=0, unlabeled=1, total=3, net=0.666667
+- AMD: bullish=0, bearish=0, unlabeled=2, total=2, net=0.000000
+- NVDA: bullish=2, bearish=0, unlabeled=0, total=2, net=1.000000
+- SMCI: bullish=44, bearish=1, unlabeled=61, total=106, net=0.405660
+- TSLA: bullish=2, bearish=0, unlabeled=6, total=8, net=0.250000
+
+=== HOURLY NET SENTIMENT (ET) ===
+[AAPL]
+  hour=00 bull=2 bear=0 unl=1 total=3 net=0.666667 Δ=
+
+[AMD]
+  hour=00 bull=0 bear=0 unl=2 total=2 net=0.000000 Δ=
+
+[NVDA]
+  hour=00 bull=2 bear=0 unl=0 total=2 net=1.000000 Δ=
+
+[SMCI]
+  hour=20 bull=9 bear=0 unl=17 total=26 net=0.346154 Δ=
+  hour=21 bull=26 bear=0 unl=33 total=59 net=0.440678 Δ=0.094524
+  hour=22 bull=9 bear=1 unl=11 total=21 net=0.380952 Δ=-0.059726
+
+[TSLA]
+  hour=00 bull=2 bear=0 unl=6 total=8 net=0.250000 Δ=
+
+=== SENTIMENT VOLATILITY (STD of hourly net sentiment) ===
+- SMCI: 0.047807
+- AAPL: nan
+- AMD: nan
+- NVDA: nan
+- TSLA: nan
+
+=== TOP KEYWORDS (per ticker) ===
+- AAPL: FOMO(2), GOING(1), MAJOR(1), NEARS(1), ESPECIALLY(1), GAP(1), BELOW(1), 50DAY(1), BOUGHT(1), CALL(1)
+- AMD: KNOW(1), HOW(1), BIG(1), CPU(1), SHORTAGE(1), THERE(1), TMRW(1), GLTA(1), GROWTH(1), DISCIPLINE(1)
+- NVDA: WENT(1), THRU(1), LAST(1), YEAR(1), SHE(1), BUMPING(1), AROUND(1), BROKE(1)
+- SMCI: REVENUE(11), ALL(7), MARKET(6), PRICE(6), SUPER(5), WHAT(5), SMCI(5), GOING(4), EARNINGS(4), MARGIN(4), HAVE(4), STOCK(4)
+- TSLA: BORING(2), COMPANY(2), TESLA(2), ALL(2), ELON(2), POWERFUL(1), GROWTH(1), ENGINES(1), WANTS(1), MERGER(1), TOO(1), MOTHER(1)
+
+=== NOTES / THEME FLAGS (per ticker) ===
+- AAPL: mentions_options(1)
+- AMD: mentions_earnings(1)
+- NVDA: mentions_earnings(1)
+- SMCI: mentions_earnings(55), mentions_options(11), has_link(3)
+- TSLA: mentions_earnings(5), mentions_options(1)
+
+=== TOP MENTIONED TICKERS (overall, from $TICKER mentions) ===
+- SMCI: 106
+- TSLA: 8
+- AMD: 5
+- AAPL: 4
+- NVDA: 4
+- PLTR: 2
+- GOOG: 2
+- SMCX: 2
+- LKNCY: 2
+- OPEN: 2
+- COST: 1
+- NFLX: 1
+- CVKD: 1
+- NLST: 1
+- SNAP: 1
+- SPY: 1
+- GRRR: 1
+- BCRX: 1
+- BNAI: 1
+- BYND: 1
+
+=== TOP MENTIONED TICKERS (per stream) ===
+- AAPL: AAPL(3)
+- AMD: AMD(2), COST(1)
+- NVDA: NVDA(2), NFLX(1)
+- SMCI: SMCI(106), AMD(3), GOOG(2), SMCX(2), LKNCY(2), OPEN(2), NVDA(2), PLTR(1), CVKD(1), NLST(1), SNAP(1), SPY(1)
+- TSLA: TSLA(8), AVGO(1), PLTR(1), BTC(1)
+
+=== CROSS-TICKER SPILLOVER MATRIX (count of posts in stream mentioning target) ===
+      AMD  NVDA  AAPL  TSLA  SMCI
+AMD     0     0     0     0     0
+NVDA    0     0     0     0     0
+AAPL    0     0     0     0     0
+TSLA    0     0     0     0     0
+SMCI    3     2     1     0     0
+
+=== NORMALIZED SPILLOVER (row-normalized %) ===
+       AMD  NVDA  AAPL  TSLA  SMCI
+AMD    0.0   0.0   0.0   0.0   0.0
+NVDA   0.0   0.0   0.0   0.0   0.0
+AAPL   0.0   0.0   0.0   0.0   0.0
+TSLA   0.0   0.0   0.0   0.0   0.0
+SMCI  50.0  33.3  16.7   0.0   0.0
+
+=== NOTABLE POSTS (sample, per ticker) ===
+[AAPL]
+  - mentions_options | https://stocktwits.com/Cheatoos/message/643765787 | $AAPL by Fomo bought $275 call 😊
+
+[AMD]
+  - mentions_earnings | https://stocktwits.com/SebrightCapital/message/643765243 | $AMD we will know how big of a CPU shortage there is tmrw.    GLTA
+
+[NVDA]
+  - mentions_earnings | https://stocktwits.com/RobinhooderFT/message/643765270 | $NFLX Went thru this with $NVDA last year... She was bumping around in the 90&#39;s.. Broke to 89 for like one day(I added that day)... Shot up$100 bucks since that low... This will do the same only this one is going way...
+
+[SMCI]
+  - mentions_earnings | https://stocktwits.com/SKIJK/message/643901130 | $SMCI Super Micro Computer (SMCI) reported robust Q2 earnings, surpassing estimates significantly. The company&#39;s revenue soared due to strong demand for AI servers, leading to an optimistic annual revenue forecast of...
+  - mentions_earnings | https://stocktwits.com/TheIndustrials/message/643901146 | $SMCI It&#39;s a low margin, high volume type of business. That&#39;s not going to change. Market will be okay with it if margins stabilize. If they can consistently beat their numbers for a few more quarters the market ...
+  - mentions_earnings | https://stocktwits.com/KmOz19/message/643901170 | $SMCI Curious question... What&#39;s your average and what&#39;s your price target to sell??  I have an average of 34 and my price target hasn&#39;t changed... It&#39;s 42-45.  Now if we hit 42 and everything still looks...
+  - has_link | https://stocktwits.com/TraderMonu/message/643901294 | $SMCI $AMD https://x.com/valueandtheta/status/2018860194885722242?s=46&amp;t=5nakls6h1oqkDfnQ1MDg9Q
+  - mentions_options,mentions_earnings | https://stocktwits.com/DrivingCrooner/message/643901302 | $PLTR $SMCI These two are like a case study for a very important lesson. Wall Street only cares about profits. One trades at like 100 p/s and 200 p/e but w/ 80% gross margin and 30% net margin. And pricing power over com...
+  - mentions_earnings | https://stocktwits.com/optioned/message/643901634 | @DrivingCrooner all true. And anyone new to this stock should be reminded that not long ago E&amp;Y dropped $SMCI as a client and publicly said it was because management could not be trusted. Be very careful with this st...
+
+[TSLA]
+  - mentions_earnings | https://stocktwits.com/MalissaDuval358/message/643765301 | $TSLA $AVGO Powerful growth engines
+  - mentions_earnings | https://stocktwits.com/yeahbah/message/643765350 | $TSLA the boring company wants a merger too 🤣🤣🤣
+  - mentions_earnings | https://stocktwits.com/RealInvestor07/message/643765417 | Tesla is mother of all overvalued companies. $PLTR $TSLA
+  - mentions_earnings | https://stocktwits.com/CmonManGiveMeABreak/message/643765540 | $TSLA Elon&#39;s boring company will merge with Neuralink tomorrow. LMFAO
+  - mentions_options,mentions_earnings | https://stocktwits.com/Charizardforlife/message/643765770 | $TSLA Imagine holding puts while Elon casually merges all of his companies with TSLA
+
+
+=== DAILY_METRICS.CSV SNAPSHOT (if available) ===
+      date window_start_et window_end_et ticker  total_posts  bullish  bearish  unlabeled  bullish_pct  bearish_pct  net_sentiment  sentiment_volatility  max_hourly_sentiment  min_hourly_sentiment  sentiment_range  largest_hourly_change  spillover_mentions_total spillover_top_target  spillover_top_target_pct  mentions_earnings_count  mentions_options_count  has_link_count  mentions_chart_count                                                               top_keywords_12
+2026-02-03   2/3/2026 0:00 2/4/2026 0:00    AMD            2        0        0          2     0.000000          0.0       0.000000                   0.0              0.000000              0.000000              0.0                    0.0                         0                  NaN                       0.0                        1                       0               0                     0                   KNOW|HOW|BIG|CPU|SHORTAGE|THERE|TMRW|GLTA|GROWTH|DISCIPLINE
+2026-02-03   2/3/2026 0:00 2/4/2026 0:00   NVDA            2        2        0          0     1.000000          0.0       1.000000                   0.0              1.000000              1.000000              0.0                    0.0                         0                  NaN                       0.0                        1                       0               0                     0                                  WENT|THRU|LAST|YEAR|SHE|BUMPING|AROUND|BROKE
+2026-02-03   2/3/2026 0:00 2/4/2026 0:00   AAPL            3        2        0          1     0.666667          0.0       0.666667                   0.0              0.666667              0.666667              0.0                    0.0                         0                  NaN                       0.0                        0                       1               0                     0                 FOMO|GOING|MAJOR|NEARS|ESPECIALLY|GAP|BELOW|50DAY|BOUGHT|CALL
+2026-02-03   2/3/2026 0:00 2/4/2026 0:00   TSLA            8        2        0          6     0.250000          0.0       0.250000                   0.0              0.250000              0.250000              0.0                    0.0                         0                  NaN                       0.0                        5                       1               0                     0 BORING|COMPANY|TESLA|ALL|ELON|POWERFUL|GROWTH|ENGINES|WANTS|MERGER|TOO|MOTHER
+
+=== INTERPRETATION (auto) ===
+- Most bullish stream (net): NVDA (net=1.000, n=2)
+- Least bullish stream (net): AMD (net=0.000, n=2)
+- Attention concentration: top stream SMCI captured 106/121 (87.6%) of posts.
+- BTC appeared in mentions: 1 times (indicator of crypto spillover into equity streams).
+
+=== YOUR NOTES (fill in) ===
+- Major narrative drivers today:
+- Any unusual spikes / anomalies:
+- What to watch next session:

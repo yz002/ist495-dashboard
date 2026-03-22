@@ -1,0 +1,9 @@
+============================================================================
+DAILY SOCIAL FINANCIAL SENTIMENT REPORT (Stocktwits)
+Ticker: NVDA
+Analysis Date (ET): 2026-02-07
+Window (ET): 2026-02-07T00:00:00-05:00 -> 2026-02-08T00:00:00-05:00
+Window (UTC): 2026-02-07T05:00:00Z -> 2026-02-08T05:00:00Z
+============================================================================
+
+No data found for this ticker in this all-day window.
