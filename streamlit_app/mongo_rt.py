@@ -6,12 +6,24 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from typing import Optional, Tuple
-import glob
-import os
 import pandas as pd
 from pymongo import MongoClient
 
 ET = ZoneInfo("America/New_York")
+
+BUY_IN_CUES = (
+    "buy", "loading", "load up", "adding", "added", "accumulate", "bullish",
+    "breakout", "squeeze", "moon", "rip", "runner", "approval", "partnership",
+    "contract", "deal", "acquisition", "merger", "news coming", "news soon",
+    "upside", "bounce", "rebound", "calls", "covering"
+)
+
+LEAVE_CUES = (
+    "sell", "selling", "exit", "get out", "leave", "dump", "rug", "rug pull",
+    "offering", "dilution", "reverse split", "delist", "bankruptcy", "fraud",
+    "bearish", "puts", "short", "collapse", "downside", "take profit",
+    "profit taking", "bad news", "halt", "scam"
+)
 
 
 @dataclass(frozen=True)
@@ -26,9 +38,6 @@ def _client(cfg: MongoCfg) -> MongoClient:
 
 
 def _parse_et_string(dt_str: str) -> datetime:
-    """
-    Parse 'YYYY-MM-DD HH:MM' as ET-aware datetime.
-    """
     dt = datetime.strptime(dt_str.strip(), "%Y-%m-%d %H:%M")
     return dt.replace(tzinfo=ET)
 
@@ -40,14 +49,6 @@ def parse_window(
     start_et: Optional[str] = None,
     end_et: Optional[str] = None,
 ) -> Tuple[datetime, datetime]:
-    """
-    Returns (start_utc, end_utc).
-
-    mode:
-      - "last_n"      -> last_n minutes/hours ending now
-      - "custom_et"   -> start_et/end_et strings in ET: "YYYY-MM-DD HH:MM"
-      - "all_time"    -> 2000-01-01 UTC to now
-    """
     now_utc = datetime.now(timezone.utc)
     mode = (mode or "").strip().lower()
 
@@ -79,44 +80,187 @@ def parse_window(
     raise ValueError("mode must be one of: last_n, custom_et, all_time")
 
 
+def _clean_message_match(start_utc: datetime, end_utc: datetime, ticker: Optional[str] = None) -> dict:
+    """
+    Mixed-history safe filter:
+    - include older docs where flags do not exist yet
+    - include newer docs where flags are explicitly False
+    - exclude only docs where flags are explicitly True
+    """
+    match = {
+        "created_at_dt": {"$gte": start_utc, "$lt": end_utc},
+        "stream_symbol": {"$exists": True, "$ne": None},
+        "$and": [
+            {
+                "$or": [
+                    {"is_low_quality": {"$exists": False}},
+                    {"is_low_quality": False},
+                ]
+            },
+            {
+                "$or": [
+                    {"is_spam": {"$exists": False}},
+                    {"is_spam": False},
+                ]
+            },
+            {
+                "$or": [
+                    {"is_duplicate_exact": {"$exists": False}},
+                    {"is_duplicate_exact": False},
+                ]
+            },
+        ],
+    }
+
+    if ticker:
+        match["stream_symbol"] = (ticker or "").strip().upper()
+
+    return match
+
+
+def _day_bounds_from_utc(end_utc: datetime) -> tuple[datetime, datetime]:
+    end_et = end_utc.astimezone(ET)
+    day_start_et = end_et.replace(hour=0, minute=0, second=0, microsecond=0)
+    next_day_et = day_start_et + timedelta(days=1)
+    return day_start_et.astimezone(timezone.utc), next_day_et.astimezone(timezone.utc)
+
+
+def classify_rumor_direction(post: str, sentiment: Optional[str] = None) -> Optional[str]:
+    text = (post or "").lower()
+    buy_score = sum(cue in text for cue in BUY_IN_CUES)
+    leave_score = sum(cue in text for cue in LEAVE_CUES)
+
+    if (sentiment or "").lower() == "bullish":
+        buy_score += 1
+    elif (sentiment or "").lower() == "bearish":
+        leave_score += 1
+
+    if buy_score == 0 and leave_score == 0:
+        return None
+    if buy_score > leave_score:
+        return "Buy-In"
+    if leave_score > buy_score:
+        return "Leave"
+    return "Buy-In" if (sentiment or "").lower() == "bullish" else "Leave" if (sentiment or "").lower() == "bearish" else None
+
+
+def get_active_rumor_for_ticker(
+    cfg: MongoCfg,
+    ticker: str,
+    start_utc: datetime,
+    end_utc: datetime,
+) -> dict:
+    """
+    Return one active rumor for a ticker.
+    Preference order:
+    1) actionable rumor from current ET day
+    2) actionable rumor from selected window
+    """
+    col = _client(cfg)[cfg.db][cfg.messages_col]
+    ticker = (ticker or "").strip().upper()
+
+    def _pick(match: dict) -> Optional[dict]:
+        cur = col.find(
+            match,
+            {
+                "_id": 0,
+                "created_at_dt": 1,
+                "author": 1,
+                "sentiment": 1,
+                "post": 1,
+                "link": 1,
+                "rumor_flag": 1,
+                "rumor_reason": 1,
+                "source_type": 1,
+            },
+        ).sort("created_at_dt", -1).limit(100)
+
+        rows = list(cur)
+        for row in rows:
+            direction = classify_rumor_direction(row.get("post", ""), row.get("sentiment"))
+            if direction is None:
+                continue
+            dt = pd.to_datetime(row.get("created_at_dt"), utc=True, errors="coerce")
+            dt_et = dt.tz_convert(ET) if pd.notna(dt) else None
+            return {
+                "stream_symbol": ticker,
+                "active_rumor": row.get("post", ""),
+                "rumor_direction": direction,
+                "rumor_time_et": dt_et,
+                "rumor_time_label": dt_et.strftime("%b %d, %I:%M %p ET") if dt_et is not None else "",
+                "rumor_author": row.get("author", ""),
+                "rumor_link": row.get("link", ""),
+                "rumor_reason": row.get("rumor_reason", ""),
+            }
+        return None
+
+    today_start_utc, today_end_utc = _day_bounds_from_utc(end_utc)
+
+    today_match = _clean_message_match(today_start_utc, today_end_utc, ticker)
+    today_match["rumor_flag"] = True
+
+    picked = _pick(today_match)
+    if picked:
+        return picked
+
+    window_match = _clean_message_match(start_utc, end_utc, ticker)
+    window_match["rumor_flag"] = True
+
+    picked = _pick(window_match)
+    if picked:
+        return picked
+
+    return {
+        "stream_symbol": ticker,
+        "active_rumor": "",
+        "rumor_direction": "",
+        "rumor_time_et": None,
+        "rumor_time_label": "",
+        "rumor_author": "",
+        "rumor_link": "",
+        "rumor_reason": "",
+    }
+
+
+def get_active_rumors_for_tickers(
+    cfg: MongoCfg,
+    tickers: list[str],
+    start_utc: datetime,
+    end_utc: datetime,
+) -> pd.DataFrame:
+    rows = []
+    for ticker in tickers:
+        rows.append(get_active_rumor_for_ticker(cfg, ticker, start_utc, end_utc))
+    if not rows:
+        return pd.DataFrame(columns=[
+            "stream_symbol",
+            "active_rumor",
+            "rumor_direction",
+            "rumor_time_et",
+            "rumor_time_label",
+            "rumor_author",
+            "rumor_link",
+            "rumor_reason",
+        ])
+    return pd.DataFrame(rows)
+
+
 def agg_ticker_summary(
     cfg: MongoCfg,
     start_utc: datetime,
     end_utc: datetime,
     limit: int = 50000
 ) -> pd.DataFrame:
-    """
-    Per-ticker aggregation for window [start_utc, end_utc).
-    Uses created_at_dt (Mongo Date).
-
-    Filters out low-quality/spam/exact-duplicate messages.
-
-    Returns columns:
-      stream_symbol, total_posts, bullish, bearish, unlabeled,
-      traditional_posts, social_posts, rumor_posts,
-      sentiment_score, density_per_min
-    """
     col = _client(cfg)[cfg.db][cfg.messages_col]
     window_minutes = max(1e-9, (end_utc - start_utc).total_seconds() / 60.0)
 
     pipeline = [
-        {"$match": {
-            "created_at_dt": {"$gte": start_utc, "$lt": end_utc},
-            "stream_symbol": {"$exists": True, "$ne": None},
-
-            # quality filters
-            "is_low_quality": {"$ne": True},
-            "is_spam": {"$ne": True},
-            "is_duplicate_exact": {"$ne": True},
-        }},
+        {"$match": _clean_message_match(start_utc, end_utc)},
         {"$group": {
             "_id": "$stream_symbol",
-
             "total_posts": {"$sum": 1},
-
             "bullish": {"$sum": {"$cond": [{"$eq": ["$sentiment", "Bullish"]}, 1, 0]}},
             "bearish": {"$sum": {"$cond": [{"$eq": ["$sentiment", "Bearish"]}, 1, 0]}},
-
             "unlabeled": {"$sum": {"$cond": [{
                 "$or": [
                     {"$eq": ["$sentiment", None]},
@@ -125,7 +269,6 @@ def agg_ticker_summary(
                     {"$eq": [{"$type": "$sentiment"}, "missing"]},
                 ]
             }, 1, 0]}},
-
             "traditional_posts": {"$sum": {"$cond": [{"$eq": ["$source_type", "Traditional"]}, 1, 0]}},
             "social_posts": {"$sum": {"$cond": [{"$eq": ["$source_type", "Rumor/Social"]}, 1, 0]}},
             "rumor_posts": {"$sum": {"$cond": [{"$eq": ["$rumor_flag", True]}, 1, 0]}},
@@ -133,16 +276,13 @@ def agg_ticker_summary(
         {"$project": {
             "_id": 0,
             "stream_symbol": "$_id",
-
             "total_posts": 1,
             "bullish": 1,
             "bearish": 1,
             "unlabeled": 1,
-
             "traditional_posts": 1,
             "social_posts": 1,
             "rumor_posts": 1,
-
             "sentiment_score": {
                 "$cond": [
                     {"$gt": [{"$add": ["$bullish", "$bearish"]}, 0]},
@@ -185,27 +325,12 @@ def agg_time_buckets_for_ticker(
     end_utc: datetime,
     bucket_minutes: int = 5,
 ) -> pd.DataFrame:
-    """
-    Bucketed time series for one ticker.
-    Filters out low-quality/spam/exact-duplicate messages.
-
-    Output:
-      bucket_start_utc, bucket_start_et, total_posts, bullish, bearish, sentiment_score
-    """
     col = _client(cfg)[cfg.db][cfg.messages_col]
     ticker = (ticker or "").strip().upper()
     bucket_ms = int(bucket_minutes * 60_000)
 
     pipeline = [
-        {"$match": {
-            "created_at_dt": {"$gte": start_utc, "$lt": end_utc},
-            "stream_symbol": ticker,
-
-            # quality filters
-            "is_low_quality": {"$ne": True},
-            "is_spam": {"$ne": True},
-            "is_duplicate_exact": {"$ne": True},
-        }},
+        {"$match": _clean_message_match(start_utc, end_utc, ticker)},
         {"$group": {
             "_id": {
                 "$toDate": {
@@ -263,23 +388,11 @@ def get_latest_messages(
     end_utc: datetime,
     limit: int = 200,
 ) -> pd.DataFrame:
-    """
-    Raw message feed for drilldown.
-    Filters out low-quality/spam/exact-duplicate messages.
-    """
     col = _client(cfg)[cfg.db][cfg.messages_col]
     ticker = (ticker or "").strip().upper()
 
     cur = col.find(
-        {
-            "created_at_dt": {"$gte": start_utc, "$lt": end_utc},
-            "stream_symbol": ticker,
-
-            # quality filters
-            "is_low_quality": {"$ne": True},
-            "is_spam": {"$ne": True},
-            "is_duplicate_exact": {"$ne": True},
-        },
+        _clean_message_match(start_utc, end_utc, ticker),
         {
             "_id": 0,
             "created_at_dt": 1,
@@ -329,15 +442,7 @@ def ticker_summary(cfg: MongoCfg, ticker: str, start_utc: datetime, end_utc: dat
     ticker = (ticker or "").strip().upper()
 
     pipeline = [
-        {"$match": {
-            "created_at_dt": {"$gte": start_utc, "$lt": end_utc},
-            "stream_symbol": ticker,
-
-            # quality filters
-            "is_low_quality": {"$ne": True},
-            "is_spam": {"$ne": True},
-            "is_duplicate_exact": {"$ne": True},
-        }},
+        {"$match": _clean_message_match(start_utc, end_utc, ticker)},
         {"$group": {
             "_id": "$stream_symbol",
             "total_posts": {"$sum": 1},
@@ -400,9 +505,6 @@ def ticker_summary(cfg: MongoCfg, ticker: str, start_utc: datetime, end_utc: dat
     return out
 
 
-# --------------------------
-# Link classification helpers
-# --------------------------
 URL_RE = re.compile(r"(https?://[^\s\]\)<>\"']+)", re.IGNORECASE)
 
 TRADITIONAL_DOMAINS = {
@@ -461,19 +563,12 @@ def classify_domain(domain: str) -> str:
     return "Rumor/Social"
 
 
-# --------------------------
-# Finviz loader
-# --------------------------
-FINVIZ_DIR = r"C:\Users\yosef\OneDrive\Desktop\Research Internship IST495\finviz_daily"
-
-
 def load_latest_finviz():
     client = MongoClient("mongodb://localhost:27017/")
     db = client["ist495"]
     col = db["finviz_elite"]
 
     data = list(col.find({}, {"_id": 0}))
-
     if not data:
         return pd.DataFrame()
 

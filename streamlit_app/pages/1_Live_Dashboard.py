@@ -9,6 +9,7 @@ from mongo_rt import (
     parse_window,
     agg_ticker_summary,
     load_latest_finviz,
+    get_active_rumors_for_tickers,
 )
 
 ET = ZoneInfo("America/New_York")
@@ -31,9 +32,6 @@ def now_et_str() -> str:
 
 st.set_page_config(page_title="Market Intelligence Engine", layout="wide")
 
-# -----------------------------
-# Styling
-# -----------------------------
 st.markdown(
     """
     <style>
@@ -160,7 +158,7 @@ st.markdown(
     <div class="hero-card fade">
         <div class="hero-title">📈 Market Intelligence Engine</div>
         <div class="hero-subtitle">
-            Real-time social sentiment, rumor activity, message density, and market context
+            Real-time social sentiment, one active rumor per ticker, message density, and market context
         </div>
     </div>
     """,
@@ -169,19 +167,18 @@ st.markdown(
 
 cfg = MongoCfg()
 
-# -----------------------------
-# Defaults
-# -----------------------------
+# IMPORTANT:
+# No auto-overwriting custom dates anymore.
 DEFAULTS = dict(
     window_type="Custom",
     preset="30 minutes",
     minutes=30,
-    custom_start=today_6am_et_str(),
+    custom_start="2026-02-06 06:00",
     custom_end=now_et_str(),
-    min_posts=1,
-    sort_by="density_per_min",
+    min_posts=0,
+    sort_by="total_posts",
     sort_dir="Descending",
-    top_n=50,
+    top_n=300,
     refresh_seconds=10,
     auto_refresh=False,
 )
@@ -191,17 +188,6 @@ if "filters" not in st.session_state:
 
 applied = st.session_state["filters"]
 
-# Refresh default day automatically when the calendar day changes
-today_start = today_6am_et_str()[:10]
-saved_start = str(applied.get("custom_start", ""))
-if applied["window_type"] == "Custom" and saved_start[:10] != today_start:
-    st.session_state["filters"]["custom_start"] = today_6am_et_str()
-    st.session_state["filters"]["custom_end"] = now_et_str()
-    applied = st.session_state["filters"]
-
-# -----------------------------
-# Sidebar
-# -----------------------------
 st.sidebar.header("Controls")
 
 with st.sidebar.form("controls_form", clear_on_submit=False):
@@ -220,6 +206,15 @@ with st.sidebar.form("controls_form", clear_on_submit=False):
         index=["5 minutes", "30 minutes", "1 hour", "6 hours", "24 hours", "7 days"].index(applied["preset"]),
         disabled=(window_type != "Last N"),
     )
+
+    preset_to_minutes = {
+        "5 minutes": 5,
+        "30 minutes": 30,
+        "1 hour": 60,
+        "6 hours": 360,
+        "24 hours": 1440,
+        "7 days": 10080,
+    }
 
     minutes = st.number_input(
         "Last N minutes",
@@ -263,7 +258,6 @@ with st.sidebar.form("controls_form", clear_on_submit=False):
     ]
 
     prev_sort = applied["sort_by"] if applied["sort_by"] in sort_options else "density_per_min"
-
     sort_by = st.selectbox("Sort by", sort_options, index=sort_options.index(prev_sort))
 
     sort_dir = st.radio(
@@ -286,10 +280,14 @@ with st.sidebar.form("controls_form", clear_on_submit=False):
     reset_clicked = colB.form_submit_button("↩️ Reset")
 
 if apply_clicked:
+    chosen_minutes = int(minutes)
+    if window_type == "Last N" and chosen_minutes <= 0:
+        chosen_minutes = int(preset_to_minutes.get(preset, 30))
+
     st.session_state["filters"] = dict(
         window_type=window_type,
         preset=preset,
-        minutes=int(minutes),
+        minutes=chosen_minutes,
         custom_start=custom_start.strip(),
         custom_end=custom_end.strip(),
         min_posts=int(min_posts),
@@ -313,22 +311,25 @@ if applied["auto_refresh"]:
     else:
         st_autorefresh(interval=int(applied["refresh_seconds"]) * 1000, key="live_refresh")
 
-# -----------------------------
-# Window selection
-# -----------------------------
-if applied["window_type"] == "Last N":
-    start_utc, end_utc = parse_window("last_n", last_n=int(applied["minutes"]), unit="minutes")
-elif applied["window_type"] == "Custom":
-    if not applied["custom_start"] or not applied["custom_end"]:
-        st.warning("Enter custom times, then click Apply.")
-        st.stop()
-    start_utc, end_utc = parse_window("custom_et", start_et=applied["custom_start"], end_et=applied["custom_end"])
-else:
-    start_utc, end_utc = parse_window("all_time")
+# Robust window parsing with visible error
+try:
+    if applied["window_type"] == "Last N":
+        start_utc, end_utc = parse_window("last_n", last_n=int(applied["minutes"]), unit="minutes")
+    elif applied["window_type"] == "Custom":
+        if not applied["custom_start"] or not applied["custom_end"]:
+            st.warning("Enter custom times, then click Apply.")
+            st.stop()
+        start_utc, end_utc = parse_window(
+            "custom_et",
+            start_et=applied["custom_start"],
+            end_et=applied["custom_end"],
+        )
+    else:
+        start_utc, end_utc = parse_window("all_time")
+except Exception as e:
+    st.error(f"Window error: {e}")
+    st.stop()
 
-# -----------------------------
-# Load data
-# -----------------------------
 df = agg_ticker_summary(cfg, start_utc, end_utc)
 finviz = load_latest_finviz()
 
@@ -350,22 +351,25 @@ if not df.empty:
     df = df.head(applied["top_n"]).reset_index(drop=True)
 
 if not df.empty:
+    rumor_df = get_active_rumors_for_tickers(cfg, df["stream_symbol"].astype(str).tolist(), start_utc, end_utc)
+    if not rumor_df.empty:
+        df = df.merge(
+            rumor_df[["stream_symbol", "active_rumor", "rumor_direction", "rumor_time_label"]],
+            on="stream_symbol",
+            how="left",
+        )
+
+if not df.empty:
     st.session_state["last_live_tickers"] = df["stream_symbol"].astype(str).tolist()
 else:
     st.session_state["last_live_tickers"] = []
 
-# -----------------------------
-# Summary metrics
-# -----------------------------
 total_tickers = int(len(df)) if not df.empty else 0
 total_posts = int(df["total_posts"].sum()) if (not df.empty and "total_posts" in df.columns) else 0
-total_rumor = int(df["rumor_posts"].sum()) if (not df.empty and "rumor_posts" in df.columns) else 0
+tickers_with_active_rumor = int(df["active_rumor"].fillna("").ne("").sum()) if (not df.empty and "active_rumor" in df.columns) else 0
 total_traditional = int(df["traditional_posts"].sum()) if (not df.empty and "traditional_posts" in df.columns) else 0
 avg_sentiment = float(df["sentiment_score"].mean()) if (not df.empty and "sentiment_score" in df.columns) else 0.0
 
-# -----------------------------
-# Upgrade 1: Market Status Banner
-# -----------------------------
 market_sentiment = "Neutral"
 if avg_sentiment > 0.2:
     market_sentiment = "Bullish"
@@ -373,9 +377,9 @@ elif avg_sentiment < -0.2:
     market_sentiment = "Bearish"
 
 rumor_level = "Low"
-if total_posts > 0 and total_rumor > total_posts * 0.4:
+if total_tickers > 0 and tickers_with_active_rumor > total_tickers * 0.4:
     rumor_level = "High"
-elif total_posts > 0 and total_rumor > total_posts * 0.2:
+elif total_tickers > 0 and tickers_with_active_rumor > total_tickers * 0.2:
     rumor_level = "Medium"
 
 top_ticker = df.iloc[0]["stream_symbol"] if not df.empty else "N/A"
@@ -386,7 +390,7 @@ st.markdown(
         <div class="status-title">🧭 Market Status</div>
         <div class="status-text">
             Sentiment: <b>{market_sentiment}</b> &nbsp;|&nbsp;
-            Rumor Activity: <b>{rumor_level}</b> &nbsp;|&nbsp;
+            Active Rumor Level: <b>{rumor_level}</b> &nbsp;|&nbsp;
             Top Ticker: <b>{top_ticker}</b> &nbsp;|&nbsp;
             Window Start: <b>{start_utc.astimezone(ET).strftime('%m/%d %I:%M %p')}</b>
         </div>
@@ -395,9 +399,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# -----------------------------
-# Summary cards
-# -----------------------------
 c1, c2, c3, c4, c5 = st.columns(5)
 
 with c1:
@@ -405,7 +406,7 @@ with c1:
 with c2:
     st.markdown(f'<div class="mini-card mini-purple fade"><div class="mini-label">Total Clean Posts</div><div class="mini-value">{total_posts}</div></div>', unsafe_allow_html=True)
 with c3:
-    st.markdown(f'<div class="mini-card mini-red fade"><div class="mini-label">Rumor Posts</div><div class="mini-value">{total_rumor}</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="mini-card mini-red fade"><div class="mini-label">Tickers With Active Rumor</div><div class="mini-value">{tickers_with_active_rumor}</div></div>', unsafe_allow_html=True)
 with c4:
     st.markdown(f'<div class="mini-card mini-green fade"><div class="mini-label">Traditional Posts</div><div class="mini-value">{total_traditional}</div></div>', unsafe_allow_html=True)
 with c5:
@@ -426,11 +427,11 @@ display_name_map = {
     "price_change": "Price Change",
     "price_change_num": "Price Change (%)",
     "volume": "Volume",
+    "active_rumor": "Active Rumor",
+    "rumor_direction": "Rumor Direction",
+    "rumor_time_label": "Rumor Time (ET)",
 }
 
-# -----------------------------
-# Upgrade 2: Ticker Cards Grid
-# -----------------------------
 st.markdown('<div class="section-title">Featured Tickers</div>', unsafe_allow_html=True)
 
 if df.empty:
@@ -456,17 +457,18 @@ else:
                 <div class="ticker-meta">
                     Posts: <b>{int(row.get('total_posts', 0))}</b><br>
                     Sentiment: <b>{sentiment_val:.2f}</b><br>
-                    Rumors: <b>{int(row.get('rumor_posts', 0))}</b><br>
-                    Density: <b>{float(row.get('density_per_min', 0)):.2f}</b>
+                    Rumor Direction: <b>{row.get('rumor_direction', '') or '—'}</b><br>
+                    Rumor Time: <b>{row.get('rumor_time_label', '') or '—'}</b>
                 </div>
             </div>
             """,
             unsafe_allow_html=True,
         )
+        if col.button(f"Open {row.get('stream_symbol', '')}", key=f"open_card_{row.get('stream_symbol', '')}"):
+            st.session_state["ticker"] = str(row.get("stream_symbol", "")).strip().upper()
+            st.switch_page("pages/2_Ticker_Detail.py")
+            st.stop()
 
-# -----------------------------
-# Upgrade 3: Insights Engine
-# -----------------------------
 st.markdown('<div class="section-title">🧠 Insights Engine</div>', unsafe_allow_html=True)
 
 insights = []
@@ -478,8 +480,8 @@ elif avg_sentiment < -0.2:
 else:
     insights.append("Overall market sentiment is relatively balanced in the current window.")
 
-if total_posts > 0 and total_rumor > total_posts * 0.3:
-    insights.append("Rumor activity is elevated and may be contributing to short-term volatility.")
+if tickers_with_active_rumor > 0:
+    insights.append(f"There are {tickers_with_active_rumor} tickers with one surfaced active rumor signal right now.")
 
 if not df.empty:
     insights.append(f"{df.iloc[0]['stream_symbol']} is currently leading overall activity in this view.")
@@ -493,21 +495,21 @@ if "traditional_posts" in df.columns and "social_posts" in df.columns and not df
 for insight in insights:
     st.markdown(f'<div class="insight-box fade">• {insight}</div>', unsafe_allow_html=True)
 
-# -----------------------------
-# Existing signal panels
-# -----------------------------
 st.markdown('<div class="section-title">Signal Panels</div>', unsafe_allow_html=True)
 
 top_a, top_b, top_c = st.columns(3)
 
 with top_a:
-    st.markdown("### 🚨 Top Rumor Tickers")
-    if df.empty or "rumor_posts" not in df.columns:
+    st.markdown("### 🚨 Active Rumor Tickers")
+    if df.empty or "active_rumor" not in df.columns:
         st.info("No rumor data available")
     else:
-        rumor_df = df.sort_values("rumor_posts", ascending=False).head(10).copy()
-        rumor_show = [c for c in ["stream_symbol", "rumor_posts", "social_posts", "traditional_posts", "sentiment_score"] if c in rumor_df.columns]
-        st.dataframe(rumor_df[rumor_show].rename(columns=display_name_map), use_container_width=True, hide_index=True)
+        rumor_df = df[df["active_rumor"].fillna("") != ""].copy().head(10)
+        if rumor_df.empty:
+            st.info("No active rumor tickers available")
+        else:
+            show = ["stream_symbol", "rumor_direction", "rumor_time_label", "active_rumor"]
+            st.dataframe(rumor_df[show].rename(columns=display_name_map), use_container_width=True, hide_index=True)
 
 with top_b:
     st.markdown("### 📰 Top Traditional Coverage")
@@ -515,7 +517,7 @@ with top_b:
         st.info("No traditional-source data available")
     else:
         trad_df = df.sort_values("traditional_posts", ascending=False).head(10).copy()
-        trad_show = [c for c in ["stream_symbol", "traditional_posts", "social_posts", "rumor_posts", "sentiment_score"] if c in trad_df.columns]
+        trad_show = [c for c in ["stream_symbol", "traditional_posts", "social_posts", "sentiment_score"] if c in trad_df.columns]
         st.dataframe(trad_df[trad_show].rename(columns=display_name_map), use_container_width=True, hide_index=True)
 
 with top_c:
@@ -524,15 +526,15 @@ with top_c:
         st.info("No social-source data available")
     else:
         social_df = df.sort_values("social_posts", ascending=False).head(10).copy()
-        social_show = [c for c in ["stream_symbol", "social_posts", "rumor_posts", "traditional_posts", "sentiment_score"] if c in social_df.columns]
+        social_show = [c for c in ["stream_symbol", "social_posts", "traditional_posts", "sentiment_score"] if c in social_df.columns]
         st.dataframe(social_df[social_show].rename(columns=display_name_map), use_container_width=True, hide_index=True)
 
 st.markdown("---")
 
-col_left, col_right = st.columns([1.35, 1])
+col_left, col_right = st.columns([1.45, 1])
 
 with col_left:
-    st.markdown('<div class="section-title">Ticker Table</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Ticker Table — Check One Row Then Open</div>', unsafe_allow_html=True)
 
     if df.empty:
         st.info("No tickers found for this window.")
@@ -540,21 +542,40 @@ with col_left:
         display_df = df.copy().rename(columns=display_name_map)
         preferred_order = [
             "Ticker", "Total Posts", "Bullish", "Bearish", "Unlabeled",
-            "Traditional Posts", "Social Posts", "Rumor Posts",
-            "Sentiment Score", "Density / Min", "Relative Volume",
-            "Price Change", "Price Change (%)", "Volume",
+            "Traditional Posts", "Social Posts", "Sentiment Score", "Density / Min",
+            "Rumor Direction", "Rumor Time (ET)", "Active Rumor",
+            "Relative Volume", "Price Change", "Price Change (%)", "Volume",
         ]
-        cols = [c for c in preferred_order if c in display_df.columns] + [c for c in display_df.columns if c not in preferred_order]
-        st.dataframe(display_df[cols], use_container_width=True, hide_index=True)
+        cols = [c for c in preferred_order if c in display_df.columns]
+
+        selectable_df = display_df[cols].copy()
+        selectable_df.insert(0, "Open", False)
+
+        edited = st.data_editor(
+            selectable_df,
+            use_container_width=True,
+            hide_index=True,
+            key="ticker_open_editor",
+            column_config={
+                "Open": st.column_config.CheckboxColumn("Open", help="Select one ticker to open"),
+            },
+            disabled=[c for c in selectable_df.columns if c != "Open"],
+        )
+
+        picked = edited[edited["Open"] == True]
+
+        if len(picked) > 0:
+            chosen = str(picked.iloc[0]["Ticker"]).strip().upper()
+            st.session_state["ticker"] = chosen
+            st.switch_page("pages/2_Ticker_Detail.py")
+            st.stop()
+
         st.markdown(
-            '<div class="table-note">Go to <b>Ticker Detail</b> to choose a ticker and inspect message-level source behavior.</div>',
+            '<div class="table-note">The row-click version was unreliable here, so this uses a stable one-click Open checkbox.</div>',
             unsafe_allow_html=True
         )
 
 with col_right:
-    # -----------------------------
-    # Upgrade 4: Better 3D feature section
-    # -----------------------------
     st.markdown('<div class="section-title">🎯 Market Intelligence Space</div>', unsafe_allow_html=True)
     st.caption("Visualizing sentiment, activity, and market momentum in one view.")
 

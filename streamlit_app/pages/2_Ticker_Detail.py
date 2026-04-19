@@ -1,7 +1,9 @@
 import streamlit as st
-import plotly.express as px
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
 from zoneinfo import ZoneInfo
+from datetime import datetime
 
 from mongo_rt import (
     MongoCfg,
@@ -10,6 +12,7 @@ from mongo_rt import (
     agg_time_buckets_for_ticker,
     ticker_summary,
     get_latest_messages,
+    get_active_rumor_for_ticker,
 )
 
 ET = ZoneInfo("America/New_York")
@@ -18,6 +21,17 @@ try:
     from streamlit_autorefresh import st_autorefresh
 except Exception:
     st_autorefresh = None
+
+
+def today_6am_et_str() -> str:
+    now_et = datetime.now(ET)
+    start_et = now_et.replace(hour=6, minute=0, second=0, microsecond=0)
+    return start_et.strftime("%Y-%m-%d %H:%M")
+
+
+def now_et_str() -> str:
+    return datetime.now(ET).strftime("%Y-%m-%d %H:%M")
+
 
 st.set_page_config(page_title="Ticker Detail", layout="wide")
 
@@ -82,6 +96,36 @@ st.markdown(
         font-weight: 800;
         line-height: 1.1;
     }
+    .rumor-banner {
+        border-radius: 16px;
+        padding: 1rem 1.15rem;
+        color: white;
+        margin-bottom: 1rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .rumor-buy {
+        background: linear-gradient(135deg, #16a34a, #22c55e);
+    }
+    .rumor-leave {
+        background: linear-gradient(135deg, #dc2626, #ef4444);
+    }
+    .rumor-neutral {
+        background: linear-gradient(135deg, #334155, #475569);
+    }
+    .rumor-title {
+        font-size: 1.02rem;
+        font-weight: 800;
+        margin-bottom: 0.3rem;
+    }
+    .rumor-meta {
+        font-size: 0.92rem;
+        opacity: 0.95;
+        margin-bottom: 0.35rem;
+    }
+    .rumor-text {
+        font-size: 0.96rem;
+        line-height: 1.45;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -92,7 +136,7 @@ st.markdown(
     <div class="hero-card">
         <div class="hero-title">📌 Ticker Detail Dashboard</div>
         <div class="hero-subtitle">
-            Drill down into sentiment, rumor intensity, source mix, and message-level evidence
+            Drill down into sentiment, active rumor direction, source mix, and message-level evidence
         </div>
     </div>
     """,
@@ -101,63 +145,147 @@ st.markdown(
 
 cfg = MongoCfg()
 
+# -----------------------------
+# Persistent ticker detail filters
+# -----------------------------
+DETAIL_DEFAULTS = dict(
+    window_mode="Today",
+    preset="30 minutes",
+    minutes=30,
+    custom_start=today_6am_et_str(),
+    custom_end=now_et_str(),
+    bucket_minutes=10,
+    max_messages=200,
+    auto_refresh=False,
+    refresh_seconds=10,
+)
+
+if "ticker_detail_filters" not in st.session_state:
+    st.session_state["ticker_detail_filters"] = DETAIL_DEFAULTS.copy()
+
+detail_filters = st.session_state["ticker_detail_filters"]
+
 st.sidebar.header("Ticker Controls")
 
-window_mode = st.sidebar.radio("Window", ["Last N", "Custom", "All Time"], index=0)
+with st.sidebar.form("ticker_detail_controls", clear_on_submit=False):
+    window_mode = st.radio(
+        "Window",
+        ["Today", "Last N", "Custom", "All Time"],
+        index=["Today", "Last N", "Custom", "All Time"].index(detail_filters["window_mode"]),
+    )
 
-preset = st.sidebar.selectbox(
-    "Preset (Last N)",
-    ["30 minutes", "1 hour", "6 hours", "24 hours", "7 days"],
-    index=0,
-    disabled=(window_mode != "Last N"),
-)
+    preset = st.selectbox(
+        "Preset (Last N)",
+        ["30 minutes", "1 hour", "6 hours", "24 hours", "7 days"],
+        index=["30 minutes", "1 hour", "6 hours", "24 hours", "7 days"].index(detail_filters["preset"]),
+        disabled=(window_mode != "Last N"),
+    )
 
-preset_to_minutes = {
-    "30 minutes": 30,
-    "1 hour": 60,
-    "6 hours": 360,
-    "24 hours": 1440,
-    "7 days": 10080,
-}
+    preset_to_minutes = {
+        "30 minutes": 30,
+        "1 hour": 60,
+        "6 hours": 360,
+        "24 hours": 1440,
+        "7 days": 10080,
+    }
 
-minutes = st.sidebar.number_input(
-    "Last N minutes",
-    min_value=1,
-    max_value=200_000,
-    value=int(preset_to_minutes.get(preset, 30)),
-    step=1,
-    disabled=(window_mode != "Last N"),
-)
+    minutes = st.number_input(
+        "Last N minutes",
+        min_value=1,
+        max_value=200_000,
+        value=int(detail_filters["minutes"]),
+        step=1,
+        disabled=(window_mode != "Last N"),
+    )
 
-custom_start = st.sidebar.text_input(
-    'Custom start (ET) "YYYY-MM-DD HH:MM"',
-    value="",
-    disabled=(window_mode != "Custom"),
-)
+    custom_start = st.text_input(
+        'Custom start (ET) "YYYY-MM-DD HH:MM"',
+        value=detail_filters["custom_start"],
+        disabled=(window_mode != "Custom"),
+    )
 
-custom_end = st.sidebar.text_input(
-    'Custom end (ET) "YYYY-MM-DD HH:MM"',
-    value="",
-    disabled=(window_mode != "Custom"),
-)
+    custom_end = st.text_input(
+        'Custom end (ET) "YYYY-MM-DD HH:MM"',
+        value=detail_filters["custom_end"],
+        disabled=(window_mode != "Custom"),
+    )
 
-bucket_minutes = st.sidebar.selectbox("Bucket size", [1, 5, 10, 15, 30, 60], index=1)
-max_messages = st.sidebar.slider("Messages to show", 50, 500, 200, 25)
+    bucket_minutes = st.selectbox(
+        "Bucket size",
+        [1, 5, 10, 15, 30, 60],
+        index=[1, 5, 10, 15, 30, 60].index(detail_filters["bucket_minutes"]),
+    )
 
-st.sidebar.markdown("---")
-auto_refresh = st.sidebar.checkbox("Enable auto-refresh", value=False)
-refresh_seconds = st.sidebar.slider("Refresh every (seconds)", 3, 120, 10, 1)
+    max_messages = st.slider(
+        "Messages to show",
+        50,
+        500,
+        int(detail_filters["max_messages"]),
+        25,
+    )
 
-if window_mode == "Last N":
-    start_utc, end_utc = parse_window("last_n", last_n=int(minutes), unit="minutes")
-elif window_mode == "Custom":
-    if not custom_start.strip() or not custom_end.strip():
-        st.warning('Enter Custom start/end in ET (YYYY-MM-DD HH:MM).')
-        st.stop()
-    start_utc, end_utc = parse_window("custom_et", start_et=custom_start.strip(), end_et=custom_end.strip())
-else:
-    start_utc, end_utc = parse_window("all_time")
+    st.markdown("---")
+    auto_refresh = st.checkbox("Enable auto-refresh", value=bool(detail_filters["auto_refresh"]))
+    refresh_seconds = st.slider("Refresh every (seconds)", 3, 120, int(detail_filters["refresh_seconds"]), 1)
 
+    c1, c2 = st.columns(2)
+    apply_clicked = c1.form_submit_button("✅ Apply")
+    reset_clicked = c2.form_submit_button("↩️ Reset")
+
+if apply_clicked:
+    st.session_state["ticker_detail_filters"] = dict(
+        window_mode=window_mode,
+        preset=preset,
+        minutes=int(minutes),
+        custom_start=custom_start.strip(),
+        custom_end=custom_end.strip(),
+        bucket_minutes=int(bucket_minutes),
+        max_messages=int(max_messages),
+        auto_refresh=bool(auto_refresh),
+        refresh_seconds=int(refresh_seconds),
+    )
+    st.rerun()
+
+if reset_clicked:
+    st.session_state["ticker_detail_filters"] = DETAIL_DEFAULTS.copy()
+    st.rerun()
+
+detail_filters = st.session_state["ticker_detail_filters"]
+
+# -----------------------------
+# Parse window robustly
+# -----------------------------
+try:
+    if detail_filters["window_mode"] == "Today":
+        start_utc, end_utc = parse_window(
+            "custom_et",
+            start_et=today_6am_et_str(),
+            end_et=now_et_str(),
+        )
+    elif detail_filters["window_mode"] == "Last N":
+        start_utc, end_utc = parse_window(
+            "last_n",
+            last_n=int(detail_filters["minutes"]),
+            unit="minutes",
+        )
+    elif detail_filters["window_mode"] == "Custom":
+        if not detail_filters["custom_start"] or not detail_filters["custom_end"]:
+            st.warning('Enter Custom start/end in ET (YYYY-MM-DD HH:MM), then click Apply.')
+            st.stop()
+        start_utc, end_utc = parse_window(
+            "custom_et",
+            start_et=detail_filters["custom_start"],
+            end_et=detail_filters["custom_end"],
+        )
+    else:
+        start_utc, end_utc = parse_window("all_time")
+except Exception as e:
+    st.error(f"Window error: {e}")
+    st.stop()
+
+# -----------------------------
+# Ticker chooser
+# -----------------------------
 st.markdown('<div class="section-title">Choose a Ticker</div>', unsafe_allow_html=True)
 
 candidates = st.session_state.get("last_live_tickers", [])
@@ -198,16 +326,21 @@ st.markdown(f"### Ticker: **{ticker}**")
 nav_a, nav_b = st.columns(2)
 if nav_a.button("⬅️ Back to Live"):
     st.switch_page("pages/1_Live_Dashboard.py")
+    st.stop()
 if nav_b.button("🔁 Refresh now"):
     st.rerun()
 
-if auto_refresh:
+if detail_filters["auto_refresh"]:
     if st_autorefresh is None:
         st.sidebar.warning("Install streamlit-autorefresh")
     else:
-        st_autorefresh(interval=int(refresh_seconds) * 1000, key=f"refresh_{ticker}")
+        st_autorefresh(interval=int(detail_filters["refresh_seconds"]) * 1000, key=f"refresh_{ticker}")
 
+# -----------------------------
+# Summary + rumor
+# -----------------------------
 summary = ticker_summary(cfg, ticker, start_utc, end_utc)
+active_rumor = get_active_rumor_for_ticker(cfg, ticker, start_utc, end_utc)
 
 m1, m2, m3, m4 = st.columns(4)
 with m1:
@@ -235,6 +368,40 @@ st.caption(
 )
 
 st.markdown("---")
+st.markdown('<div class="section-title">Today’s Active Rumor</div>', unsafe_allow_html=True)
+
+rumor_direction = active_rumor.get("rumor_direction", "")
+rumor_class = "rumor-buy" if rumor_direction == "Buy-In" else "rumor-leave" if rumor_direction == "Leave" else "rumor-neutral"
+rumor_title = "🟢 Buy-In Rumor" if rumor_direction == "Buy-In" else "🔴 Leave Rumor" if rumor_direction == "Leave" else "ℹ️ No Actionable Rumor"
+
+if active_rumor.get("active_rumor"):
+    st.markdown(
+        f"""
+        <div class="rumor-banner {rumor_class}">
+            <div class="rumor-title">{rumor_title}</div>
+            <div class="rumor-meta">
+                {active_rumor.get("rumor_time_label", "")} &nbsp;|&nbsp;
+                {active_rumor.get("rumor_author", "") or "Unknown author"}
+            </div>
+            <div class="rumor-text">{active_rumor.get("active_rumor", "")}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+else:
+    st.markdown(
+        """
+        <div class="rumor-banner rumor-neutral">
+            <div class="rumor-title">ℹ️ No Actionable Rumor</div>
+            <div class="rumor-text">No current-day buy-in or leave rumor was found for this ticker.</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+# -----------------------------
+# Driver view
+# -----------------------------
 st.markdown('<div class="section-title">🧭 Rumor vs Traditional Driver View</div>', unsafe_allow_html=True)
 
 driver_left, driver_right = st.columns([1, 1.2])
@@ -289,52 +456,129 @@ with driver_right:
     fig_ratio.update_layout(xaxis_title="", yaxis_title="Share of Posts", yaxis_tickformat=".0%", showlegend=False)
     st.plotly_chart(fig_ratio, use_container_width=True)
 
+# -----------------------------
+# Time window chart
+# -----------------------------
 st.markdown("---")
-st.markdown('<div class="section-title">Time-Series Charts</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Ticker Time Window</div>', unsafe_allow_html=True)
 
 bucket_df = agg_time_buckets_for_ticker(
     cfg,
     ticker,
     start_utc,
     end_utc,
-    bucket_minutes=int(bucket_minutes),
+    bucket_minutes=int(detail_filters["bucket_minutes"]),
+)
+
+view_mode = st.radio(
+    "Chart view",
+    ["Sentiment", "Message Volume"],
+    horizontal=True,
 )
 
 if not bucket_df.empty:
-    bucket_df["bucket_start_et"] = pd.to_datetime(bucket_df["bucket_start_et"])
+    bucket_df["bucket_start_et"] = pd.to_datetime(bucket_df["bucket_start_et"], errors="coerce")
 
-    left, right = st.columns(2)
+    rumor_time = active_rumor.get("rumor_time_et", None)
+    rumor_color = "#22c55e" if rumor_direction == "Buy-In" else "#ef4444"
 
-    with left:
-        st.markdown("### 📊 Message Volume")
-        fig = px.line(
-            bucket_df,
-            x="bucket_start_et",
-            y="total_posts",
-            markers=True,
-            color_discrete_sequence=["#38bdf8"],
+    if view_mode == "Sentiment":
+        fig = go.Figure()
+
+        fig.add_trace(
+            go.Scatter(
+                x=bucket_df["bucket_start_et"],
+                y=bucket_df["sentiment_score"],
+                mode="lines+markers",
+                name="Sentiment",
+                line=dict(color="#a855f7", width=3),
+                marker=dict(size=7),
+            )
         )
-        fig.update_layout(xaxis_title="Time (ET)", yaxis_title="Posts", paper_bgcolor="rgba(0,0,0,0)")
+
+        if rumor_time is not None and pd.notna(rumor_time):
+            y_min = float(bucket_df["sentiment_score"].min())
+            y_max = float(bucket_df["sentiment_score"].max())
+
+            if y_min == y_max:
+                y_min -= 0.1
+                y_max += 0.1
+
+            fig.add_trace(
+                go.Scatter(
+                    x=[rumor_time, rumor_time],
+                    y=[y_min, y_max],
+                    mode="lines",
+                    name="Active Rumor",
+                    line=dict(color=rumor_color, width=2, dash="dash"),
+                    hovertext=[active_rumor.get("active_rumor", ""), active_rumor.get("active_rumor", "")],
+                    hoverinfo="text",
+                    showlegend=True,
+                )
+            )
+
+        fig.update_layout(
+            title=f"{ticker}: Sentiment Timeline",
+            xaxis_title="Time (ET)",
+            yaxis_title="Sentiment Score",
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=10, r=10, t=50, b=10),
+        )
         st.plotly_chart(fig, use_container_width=True)
 
-    with right:
-        st.markdown("### 📈 Sentiment")
-        fig = px.line(
-            bucket_df,
-            x="bucket_start_et",
-            y="sentiment_score",
-            markers=True,
-            color_discrete_sequence=["#a855f7"],
+    else:
+        fig = go.Figure()
+
+        bar_colors = ["#22c55e" if val >= 0 else "#ef4444" for val in bucket_df["sentiment_score"]]
+
+        fig.add_trace(
+            go.Bar(
+                x=bucket_df["bucket_start_et"],
+                y=bucket_df["total_posts"],
+                marker_color=bar_colors,
+                name="Messages",
+            )
         )
-        fig.update_layout(xaxis_title="Time (ET)", yaxis_title="Sentiment Score", paper_bgcolor="rgba(0,0,0,0)")
+
+        if rumor_time is not None and pd.notna(rumor_time):
+            y_max = float(bucket_df["total_posts"].max())
+            if y_max <= 0:
+                y_max = 1.0
+
+            fig.add_trace(
+                go.Scatter(
+                    x=[rumor_time, rumor_time],
+                    y=[0, y_max],
+                    mode="lines",
+                    name="Active Rumor",
+                    line=dict(color=rumor_color, width=2, dash="dash"),
+                    hovertext=[active_rumor.get("active_rumor", ""), active_rumor.get("active_rumor", "")],
+                    hoverinfo="text",
+                    showlegend=True,
+                )
+            )
+
+        fig.update_layout(
+            title=f"{ticker}: Message Volume Timeline",
+            xaxis_title="Time (ET)",
+            yaxis_title="Messages",
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=10, r=10, t=50, b=10),
+        )
         st.plotly_chart(fig, use_container_width=True)
+
 else:
     st.info("No bucket data in this window.")
 
+# -----------------------------
+# Latest messages
+# -----------------------------
 st.markdown("---")
 st.markdown('<div class="section-title">Latest Messages</div>', unsafe_allow_html=True)
 
-msgs = get_latest_messages(cfg, ticker, start_utc, end_utc, limit=int(max_messages))
+msgs = get_latest_messages(cfg, ticker, start_utc, end_utc, limit=int(detail_filters["max_messages"]))
 
 if msgs.empty:
     st.info("No messages in this window.")
@@ -384,4 +628,4 @@ else:
         else:
             st.dataframe(rumor_df[show_cols].rename(columns=msg_display_map), use_container_width=True, hide_index=True)
 
-st.caption("Tip: Use 30–60 minute windows for real-time analysis.")
+st.caption("Tip: use Today, Last N, or Custom windows and click Apply in the sidebar for stable historical views.")
